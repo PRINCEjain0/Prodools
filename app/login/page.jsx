@@ -6,7 +6,7 @@ export default function LoginPage() {
     <>
     <div className="flex flex-col ">
     <Navbar />
-      <section className="flex flex-grow h-screen bg-cream-2 ">
+    <section className="flex flex-grow h-screen bg-cream-1 ">
         <div className="flex flex-col w-full max-w-md p-8 ml-60   md:w-1/2 lg:w-1/3">
           <h2 className="libre-baskerville-regular mb-5 mt-28 text-black text-5xl">Login</h2>
           <form>
@@ -42,13 +42,13 @@ export default function LoginPage() {
             <p href="#" className="hover:underline">Need an account? <a className='underline'>Signup here</a></p>
           </div>
         </div>
-        <div className="hidden bg-cover ml-28 lg:block lg:w-full">
+        <div className="hidden bg-cover ml-28 lg:block lg:w-2/3">
         
       <div style={{ height: "700px", position: "relative" }}>
   <Image
     src="https://images.unsplash.com/photo-1433574466251-fe1be0d9b3d2?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     alt="Background Image"
-    className='object-fit: cover; height:100%'
+    
     objectFit="cover" // Or "contain" depending on your preference
     layout="fill"
   />
