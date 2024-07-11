@@ -6,7 +6,7 @@ export default function LoginPage() {
     <>
     <div className="flex flex-col ">
     <Navbar />
-    <section className="flex flex-grow h-screen bg-cream-1 ">
+    <section className="flex flex-grow h-screen bg-cream-2 ">
         <div className="flex flex-col w-full max-w-md p-8 ml-60   md:w-1/2 lg:w-1/3">
           <h2 className="libre-baskerville-regular mb-5 mt-28 text-black text-5xl">Login</h2>
           <form>
