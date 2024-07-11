@@ -31,3 +31,87 @@ body {
     text-wrap: balance;
   }
 }
+
+/* styles/globals.css */
+body h1 {
+  color: #0C302B;
+}
+
+.bg-cream-1 {
+  background-color: #F1EBDF;
+}
+
+.bg-cream-2 {
+  background-color: #F9F5EE;
+}
+
+.bg-cream-3 {
+  background-color: #EDB970;
+}
+
+.text-gold {
+  color: #EDB970;
+}
+
+.bg-green-1 {
+  background-color: #0C302B;
+}
+
+.jumbotron {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.jumbotron h1 {
+  margin-bottom: 20px;
+}
+
+.jumbotron p {
+  margin-bottom: 20px;
+}
+
+.jumbotron .btn {
+  margin-top: 20px;
+}
+
+.jumbotron img {
+  max-width: 100%;
+  height: auto;
+}
+
+.libre-baskerville-regular {
+  font-family: "Libre Baskerville", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.libre-baskerville-bold {
+  font-family: "Libre Baskerville", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.libre-baskerville-regular-italic {
+  font-family: "Libre Baskerville", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.gothic-a1-regular {
+  font-family: "Gothic A1", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  font-family: "Gothic A1", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* globals.css */
+body {
+  background-color: #f3efe5;
+}

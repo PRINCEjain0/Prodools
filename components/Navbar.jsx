@@ -9,9 +9,9 @@ export default function Navbar() {
     <nav className="bg-[#f3efe5] p-4">
       <div className="container mx-auto flex justify-between items-center">
         <Link href="/">
-          <span className="text-2xl font-bold text-gray-800 cursor-pointer ml-10">Prodools</span>
+          <span className="text-2xl  text-gray-800 cursor-pointer ml-12">AmberCub</span>
         </Link>
-        <div className="hidden sm:flex space-x-4"> 
+        <div className="hidden sm:flex space-x-4 mr-12"> 
           <Link href="/" className="text-gray-800 hover:text-black">Home</Link>
           <Link href="/about" className="text-gray-800 hover:text-black">About</Link>
           <Link href="/services" className="text-gray-800 hover:text-black">Services</Link>
