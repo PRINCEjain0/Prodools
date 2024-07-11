@@ -6,7 +6,7 @@ export default function HeroSection() {
   return (
     <>
     
-    <section className="flex flex-col lg:flex-row items-center h-screen lg:items-start bg-cream-1 p-8 lg:p-16 mb-32">
+    <section className="flex flex-col lg:flex-row items-center h-screen lg:items-start bg-cream-1 p-8 lg:p-16 ">
       <div className="lg:w-1/2 space-y-6">
         <h1 className="text-7xl font-bold text-gray-800 libre-baskerville-regular ">Welcome to Our Website!</h1>
         <p className="text-xl text-gray-700">
@@ -36,7 +36,7 @@ export default function HeroSection() {
       </div>
     </section>
 
-    <section className="flex flex-col lg:flex-row items-center h-screen  lg:items-start bg-cream-2 p-8 lg:p-16 mb-32">
+    <section className="flex flex-col lg:flex-row items-center h-screen  lg:items-start bg-cream-2 p-8 lg:p-16 ">
       <div className="lg:w-1/2 space-y-6">
         <h1 className="text-7xl font-bold text-gray-800 libre-baskerville-regular ">Welcome to Our Website!</h1>
         <p className="text-lg text-gray-700">
@@ -66,7 +66,7 @@ export default function HeroSection() {
       </div>
     </section>
 
-    <section className="flex flex-col lg:flex-row items-center h-screen  lg:items-start bg-green-1 p-8 lg:p-16 mb-32">
+    <section className="flex flex-col lg:flex-row items-center h-screen  lg:items-start bg-green-1 p-8 lg:p-16 ">
       <div className="lg:w-1/2 space-y-6">
         <h1 className="text-7xl font-bold text-gold libre-baskerville-regular ">Welcome to Our Website!</h1>
         <p className="text-lg text-white">
