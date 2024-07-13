@@ -1,4 +1,5 @@
 "use client"
+import Navbar from '@/components/Navbar';
 import React, { useState } from 'react';
 // import Select from 'react-select';
 
@@ -24,10 +25,11 @@ const DynamicForm = () => {
   };
   return (
     <>
-    <div className="p-6 bg-amber-100 h-screen flex flex-col items-center">
+    <Navbar/>
+    <div className="p-6 bg-cream-2 h-screen flex flex-col items-center">
       <button
         onClick={addInput}
-        className="mb-4 p-2 bg-amber-300 rounded-md shadow-md"
+        className="mb-4 p-2  shadow-md"
       >
         Button to add another dropdown-input pair
       </button>
@@ -36,7 +38,7 @@ const DynamicForm = () => {
           <select
             value={input.dropdown}
             onChange={(e) => handleDropdownChange(index, e.target.value)}
-            className="p-2 bg-amber-200 rounded-md shadow-md"
+            className="p-2 bg-white  shadow-md"
           >
             <option value="">Dropdown</option>
             <option value="option1">Option 1</option>
@@ -47,7 +49,7 @@ const DynamicForm = () => {
             type="text"
             value={input.text}
             onChange={(e) => handleTextChange(index, e.target.value)}
-            className="p-2 bg-amber-200 rounded-md shadow-md"
+            className="p-2 bg-white  shadow-md"
             placeholder="Input type text"
           />
         </div>
