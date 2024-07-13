@@ -15,7 +15,7 @@ export default function LoginPage() {
               <input
   type="email"
   id="email"
-  className="w-80 h-12 px-3 py-2 border  shadow-sm focus:outline-none focus:ring focus:ring-blue-200 text-gray-700" // Added text color
+  className="w-80 h-12 px-3 py-2  border-b  shadow-sm focus:outline-none focus:ring focus:ring-blue-200 text-gray-700" // Added text color
   placeholder="Email"
 />
             </div>
@@ -24,7 +24,7 @@ export default function LoginPage() {
               <input
   type="password"
   id="password"
-  className="w-80  h-12 px-3 py-2 border  shadow-sm focus:outline-none focus:ring focus:ring-blue-200 text-gray-700" // Added text color
+  className="w-80  h-12 px-3 py-2 border-b   shadow-sm focus:outline-none focus:ring focus:ring-blue-200 text-gray-700" // Added text color
   placeholder="Password"
 />
 

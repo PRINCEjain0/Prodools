@@ -49,7 +49,7 @@ const DynamicForm = () => {
             type="text"
             value={input.text}
             onChange={(e) => handleTextChange(index, e.target.value)}
-            className="w-80  h-12 px-3 py-2 border   focus:outline-none focus:ring focus:ring-blue-200 text-gray-700"
+            className="w-80  h-12 px-3 py-2 border-b  focus:outline-none focus:ring focus:ring-blue-200 text-gray-700"
             placeholder="Input type text"
           />
         </div>
