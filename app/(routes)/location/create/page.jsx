@@ -38,7 +38,7 @@ const DynamicForm = () => {
           <select
             value={input.dropdown}
             onChange={(e) => handleDropdownChange(index, e.target.value)}
-            className="p-2 bg-white  "
+            className="w-40  h-12 px-3 py-2 border-b  bg-white  "
           >
             <option value="">Dropdown</option>
             <option value="option1">Option 1</option>
