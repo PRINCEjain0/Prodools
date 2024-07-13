@@ -1,26 +1,9 @@
-"use client"
-import React, { useState } from 'react';
+import React from 'react'
 
-function SmartChip({ label }) {
-  const [values, setValues] = useState([]);
-
-  const handleValueChange = (event) => {
-    const newValue = event.target.value;
-    setValues([...values, newValue]);
-    event.target.value = ''; // Clear input field
-  };
-
+const page = () => {
   return (
-    <div>
-      <p>{label}</p>
-      <div>
-        {values.map((value, index) => (
-          <span key={index} className="chip">{value}</span>
-        ))}
-      </div>
-      <input type="text" onChange={handleValueChange} placeholder="Add value" />
-    </div>
-  );
+    <div>page</div>
+  )
 }
 
-export default SmartChip;
+export default page

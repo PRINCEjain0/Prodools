@@ -1,87 +1,61 @@
 "use client"
 import React, { useState } from 'react';
-import Select from 'react-select';
+// import Select from 'react-select';
 
 const DynamicForm = () => {
-  const [formFields, setFormFields] = useState([{ value: '' }]);
-  const [selectedChips, setSelectedChips] = useState([]);
 
-  const handleChange = (index, event) => {
-    const values = [...formFields];
-    values[index].value = event.target.value;
-    setFormFields(values);
+
+  const [inputs, setInputs] = useState([{ dropdown: '', text: '' }]);
+
+  const addInput = () => {
+    setInputs([...inputs, { dropdown: '', text: '' }]);
   };
 
-  const handleAddField = () => {
-    const values = [...formFields];
-    values.push({ value: '' });
-    setFormFields(values);
+  const handleDropdownChange = (index, value) => {
+    const newInputs = [...inputs];
+    newInputs[index].dropdown = value;
+    setInputs(newInputs);
   };
 
-  const handleRemoveField = (index) => {
-    const values = [...formFields];
-    values.splice(index, 1);
-    setFormFields(values);
+  const handleTextChange = (index, value) => {
+    const newInputs = [...inputs];
+    newInputs[index].text = value;
+    setInputs(newInputs);
   };
-
-  const handleSelectChange = (selectedOption) => {
-    setSelectedChips(selectedOption);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log('Form Data:', formFields);
-    console.log('Selected Chips:', selectedChips);
-  };
-
-  const options = [
-    { value: 'chip1', label: 'Chip 1' },
-    { value: 'chip2', label: 'Chip 2' },
-    { value: 'chip3', label: 'Chip 3' },
-  ];
-
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      {formFields.map((field, index) => (
-        <div key={index} className="flex items-center space-x-4">
+    <>
+    <div className="p-6 bg-amber-100 h-screen flex flex-col items-center">
+      <button
+        onClick={addInput}
+        className="mb-4 p-2 bg-amber-300 rounded-md shadow-md"
+      >
+        Button to add another dropdown-input pair
+      </button>
+      {inputs.map((input, index) => (
+        <div key={index} className="mb-4 flex items-center space-x-4">
+          <select
+            value={input.dropdown}
+            onChange={(e) => handleDropdownChange(index, e.target.value)}
+            className="p-2 bg-amber-200 rounded-md shadow-md"
+          >
+            <option value="">Dropdown</option>
+            <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+            <option value="option3">Option 3</option>
+          </select>
           <input
             type="text"
-            value={field.value}
-            onChange={(event) => handleChange(index, event)}
-            className="border rounded p-2 flex-1"
+            value={input.text}
+            onChange={(e) => handleTextChange(index, e.target.value)}
+            className="p-2 bg-amber-200 rounded-md shadow-md"
+            placeholder="Input type text"
           />
-          <button
-            type="button"
-            onClick={() => handleRemoveField(index)}
-            className="bg-red-500 text-white p-2 rounded"
-          >
-            Remove
-          </button>
         </div>
       ))}
-      <button
-        type="button"
-        onClick={handleAddField}
-        className="bg-blue-500 text-white p-2 rounded"
-      >
-        Add Field
-      </button>
-      <div className="mt-4">
-        <Select
-          isMulti
-          value={selectedChips}
-          onChange={handleSelectChange}
-          options={options}
-        />
-      </div>
-      <button
-        type="submit"
-        className="bg-green-500 text-white p-2 rounded mt-4"
-      >
-        Submit
-      </button>
-      
-    </form>
+    </div>
+
+   
+    </>
   );
 };
 
