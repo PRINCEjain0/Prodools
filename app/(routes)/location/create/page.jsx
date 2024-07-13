@@ -38,7 +38,7 @@ const DynamicForm = () => {
           <select
             value={input.dropdown}
             onChange={(e) => handleDropdownChange(index, e.target.value)}
-            className="p-2 bg-white  shadow-md"
+            className="p-2 bg-white  "
           >
             <option value="">Dropdown</option>
             <option value="option1">Option 1</option>
@@ -49,7 +49,7 @@ const DynamicForm = () => {
             type="text"
             value={input.text}
             onChange={(e) => handleTextChange(index, e.target.value)}
-            className="w-80  h-12 px-3 py-2 border  shadow-sm focus:outline-none focus:ring focus:ring-blue-200 text-gray-700"
+            className="w-80  h-12 px-3 py-2 border   focus:outline-none focus:ring focus:ring-blue-200 text-gray-700"
             placeholder="Input type text"
           />
         </div>
