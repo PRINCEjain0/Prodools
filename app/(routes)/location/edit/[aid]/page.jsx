@@ -1,62 +1,61 @@
 "use client";
 import Navbar from '@/components/Navbar';
-import React, { useState } from 'react';
-import Link from 'next/link';
+import React, { useState, useEffect } from 'react';
 
-const AllPersons = () => {
-  const [persons, setPersons] = useState([
-    {
-      id: 1,
-      title: 'This is the Title',
-      firstName: 'Prince',
-      middleName: '',
-      lastName: 'Jain',
-      details: "Prince's details go here.",
-    },
-    {
-      id: 2,
-      title: 'Another Title',
-      firstName: 'Krish',
-      middleName: '',
-      lastName: 'Yadav',
-      details: "Krish's details go here.",
-    },
-    {
-      id: 3,
-      title: 'Sample Title',
-      firstName: 'Ram',
-      middleName: 'Kumar',
-      lastName: 'Sharma',
-      details: "Ram's details are here.",
-    },
-  ]);
+const DynamicPersonForm = () => {
+  const initialPerson = {
+    id: Date.now(),
+    title: 'This is the Title',
+    firstName: 'Prince',
+    middleName: '',
+    lastName: 'Jain',
+    details: "Prince's details go here."
+  };
+
+  const [persons, setPersons] = useState([initialPerson]);
+
+  
+  const handleChange = (index, event) => {
+    const { name, value } = event.target;
+    const newPersons = [...persons];
+    newPersons[index][name] = value;
+    setPersons(newPersons);
+  };
+
+  const handleSave = () => {
+    console.log("Saved data:", persons);
+    alert("Data saved successfully!");
+  };
 
   return (
     <>
       <Navbar />
       <div className="flex flex-col items-center bg-cream-1 py-8">
-        <h1 className="text-3xl mb-6">All Persons</h1>
         <div className="max-w-4xl w-full space-y-8">
-          {persons.map((person) => (
+          {persons.map((person, index) => (
             <div key={person.id} className="p-8 border border-black shadow-lg bg-[#F6EFE6]">
               <h2 className="text-2xl mb-6">Person details</h2>
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700">Title</label>
                 <input
                   type="text"
+                  placeholder="Enter title"
+                  name="title"
                   value={person.title}
-                  readOnly
+                  onChange={(event) => handleChange(index, event)}
                   className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
                 />
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700">First Name</label>
+                  <label className="block text-sm font-medium text-gray-700">First name</label>
                   <input
                     type="text"
+                    placeholder="Enter first name"
+                    name="firstName"
                     value={person.firstName}
-                    readOnly
+                    onChange={(event) => handleChange(index, event)}
                     className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
                   />
                 </div>
@@ -64,8 +63,10 @@ const AllPersons = () => {
                   <label className="block text-sm font-medium text-gray-700">Middle Name</label>
                   <input
                     type="text"
+                    placeholder="Enter middle name"
+                    name="middleName"
                     value={person.middleName}
-                    readOnly
+                    onChange={(event) => handleChange(index, event)}
                     className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
                   />
                 </div>
@@ -73,8 +74,10 @@ const AllPersons = () => {
                   <label className="block text-sm font-medium text-gray-700">Last Name</label>
                   <input
                     type="text"
+                    placeholder="Enter last name"
+                    name="lastName"
                     value={person.lastName}
-                    readOnly
+                    onChange={(event) => handleChange(index, event)}
                     className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
                   />
                 </div>
@@ -83,23 +86,25 @@ const AllPersons = () => {
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700">Person Details</label>
                 <textarea
+                  placeholder="Enter party details"
+                  name="details"
                   value={person.details}
-                  readOnly
+                  onChange={(event) => handleChange(index, event)}
                   className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
                 ></textarea>
-              </div>
-
-              <div className="mt-4">
-                <Link href={`/location/edit/${person.id}`} className="bg-green-600 text-white px-4 py-2 rounded">
-                  Edit
-                </Link>
               </div>
             </div>
           ))}
         </div>
       </div>
+
+      <div className='flex justify-center'>
+        <button onClick={handleSave} className="bg-yellow-600 w-screen text-xl h-16 text-white px-4 mx-80">
+          Save
+        </button>
+      </div>
     </>
   );
 };
 
-export default AllPersons;
+export default DynamicPersonForm;
