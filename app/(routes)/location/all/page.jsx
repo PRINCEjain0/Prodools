@@ -12,6 +12,10 @@ const AllPersons = () => {
       middleName: '',
       lastName: 'Jain',
       details: "Prince's details go here.",
+      address: '123 Main St, City, Country',
+      latitude: '12.345678',
+      longitude: '98.765432',
+      dropboxes: 'Dropbox 1, Dropbox 2',
     },
     {
       id: 2,
@@ -20,6 +24,10 @@ const AllPersons = () => {
       middleName: '',
       lastName: 'Yadav',
       details: "Krish's details go here.",
+      address: '456 Another St, City, Country',
+      latitude: '23.456789',
+      longitude: '87.654321',
+      dropboxes: 'Dropbox A, Dropbox B',
     },
     {
       id: 3,
@@ -28,8 +36,14 @@ const AllPersons = () => {
       middleName: 'Kumar',
       lastName: 'Sharma',
       details: "Ram's details are here.",
+      address: '789 Sample Rd, City, Country',
+      latitude: '34.567890',
+      longitude: '76.543210',
+      dropboxes: 'Dropbox X, Dropbox Y',
     },
   ]);
+
+  
 
   return (
     <>
@@ -87,6 +101,46 @@ const AllPersons = () => {
                   readOnly
                   className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
                 ></textarea>
+              </div>
+
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-700">Address</label>
+                <input
+                  type="text"
+                  value={person.address}
+                  readOnly
+                  className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
+                />
+              </div>
+
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-700">Latitude</label>
+                <input
+                  type="text"
+                  value={person.latitude}
+                  readOnly
+                  className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
+                />
+              </div>
+
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-700">Longitude</label>
+                <input
+                  type="text"
+                  value={person.longitude}
+                  readOnly
+                  className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
+                />
+              </div>
+
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-700">Dropboxes</label>
+                <input
+                  type="text"
+                  value={person.dropboxes}
+                  readOnly
+                  className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
+                />
               </div>
 
               <div className="mt-4">

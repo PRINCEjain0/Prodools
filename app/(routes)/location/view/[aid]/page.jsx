@@ -15,7 +15,8 @@ const DynamicPersonForm = () => {
 
   
   return (
-    <>
+    
+     <>
       <Navbar />
       <div className="flex flex-col items-center bg-cream-1 py-8">
         <div className="max-w-4xl w-full space-y-8">
@@ -29,8 +30,8 @@ const DynamicPersonForm = () => {
                   placeholder="Enter title"
                   name="title"
                   value="Title"
-                 
-                  className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
+                  className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none disabled:bg-gray-200 disabled:cursor-not-allowed"
+                  disabled
                 />
               </div>
 
@@ -42,8 +43,8 @@ const DynamicPersonForm = () => {
                     placeholder="Enter first name"
                     name="firstName"
                     value="Prince"
-                    
-                    className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
+                    className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none disabled:bg-gray-200 disabled:cursor-not-allowed"
+                    disabled
                   />
                 </div>
                 <div>
@@ -53,8 +54,8 @@ const DynamicPersonForm = () => {
                     placeholder="Enter middle name"
                     name="middleName"
                     value=""
-                    
-                    className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
+                    className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none disabled:bg-gray-200 disabled:cursor-not-allowed"
+                    disabled
                   />
                 </div>
                 <div>
@@ -64,8 +65,8 @@ const DynamicPersonForm = () => {
                     placeholder="Enter last name"
                     name="lastName"
                     value="Jain"
-                   
-                    className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
+                    className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none disabled:bg-gray-200 disabled:cursor-not-allowed"
+                    disabled
                   />
                 </div>
               </div>
@@ -76,8 +77,8 @@ const DynamicPersonForm = () => {
                   placeholder="Enter party details"
                   name="details"
                   value="Prince's details go here."
-                 
-                  className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
+                  className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none disabled:bg-gray-200 disabled:cursor-not-allowed"
+                  disabled
                 ></textarea>
               </div>
             </div>

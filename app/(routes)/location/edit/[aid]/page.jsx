@@ -27,6 +27,14 @@ const DynamicPersonForm = () => {
     alert("Data saved successfully!");
   };
 
+  const addPerson = () => {
+    setPersons([...persons, { id: Date.now() }]);
+  };
+
+  const removePerson = (id) => {
+    setPersons(persons.filter(person => person.id !== id));
+  };
+
   return (
     <>
       <Navbar />
@@ -93,7 +101,11 @@ const DynamicPersonForm = () => {
                   className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
                 ></textarea>
               </div>
+              {persons.length > 1 && (
+              <button onClick={() => removePerson(person.id)} className="bg-red-500 text-white px-4 py-2">Remove Person</button>
+            )}
             </div>
+            
           ))}
         </div>
       </div>
@@ -103,6 +115,11 @@ const DynamicPersonForm = () => {
           Save
         </button>
       </div>
+     
+     <div className="flex justify-between mt-6">
+     <button onClick={addPerson} className="bg-black text-md w-32 h-16 text-white px-4 py-1 ml-80">Add Person</button>
+   </div>
+  
     </>
   );
 };
