@@ -7,7 +7,7 @@ const AllPersons = () => {
     {
       id: 1,
       poster: 'https://plus.unsplash.com/premium_photo-1663099586860-e81d57e8b6bd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YW5ub3VuY2VtZW50JTIwcG9zdGVyfGVufDB8fDB8fHww',
-      text: 'This is an person text.',
+      text: 'This is an announcement text.',
       title: 'This is the Title',
       firstName: 'Prince',
       middleName: '',

@@ -50,8 +50,83 @@ const DynamicPersonForm = () => {
       <Navbar />
       <div className="flex flex-col items-center bg-cream-1 py-8">
         <div className="max-w-4xl w-full space-y-8">
+       
           {persons.map((person, index) => (
-            <div key={person.id} className="p-8 border border-black shadow-lg bg-[#F6EFE6]">
+            <div key={persons[0].id} >
+               <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-700">Address</label>
+                <input
+                  type="text"
+                  name="address"
+                  value={persons[0].address}
+                  onChange={(e) => handleChange(index, e)}
+                  className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
+                />
+              </div>
+
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-700">Latitude</label>
+                <input
+                  type="text"
+                  name="latitude"
+                  value={persons[0].latitude}
+                  onChange={(e) => handleChange(index, e)}
+                  className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
+                />
+              </div>
+
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-700">Longitude</label>
+                <input
+                  type="text"
+                  name="longitude"
+                  value={persons[0].longitude}
+                  onChange={(e) => handleChange(index, e)}
+                  className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
+                />
+              </div>
+
+              <div className="flex flex-col items-center bg-cream-1 py-8">
+      <div className="max-w-4xl w-full space-y-8">
+        <button
+          onClick={addPair}
+          className="block w-full px-4 py-2 text-center bg-gray-200 border-b border-gray-300"
+        >
+          Button to add another dropdown-input pair
+        </button>
+        {pairs.map((pair, index) => (
+          <div key={pair.id} className="grid grid-cols-2 gap-4 mb-4">
+            <select
+              value={pair.dropdown}
+              onChange={(e) => {
+                const newPairs = [...pairs];
+                newPairs[index].dropdown = e.target.value;
+                setPairs(newPairs);
+              }}
+              className="w-full px-4 py-2 border-b border-gray-300 bg-gray-200"
+            >
+              <option value="">Dropdown</option>
+              
+              <option value="Option 1">Option 1</option>
+              <option value="Option 2">Option 2</option>
+
+            </select>
+            <input
+              type="text"
+              value={pair.input}
+              onChange={(e) => {
+                const newPairs = [...pairs];
+                newPairs[index].input = e.target.value;
+                setPairs(newPairs);
+              }}
+              placeholder="Input type text"
+              className="w-full px-4 py-2 border-b border-gray-300 bg-gray-200"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+    <div className="p-8 border border-black shadow-lg bg-[#F6EFE6]">
               <h2 className="text-2xl mb-6">Person details</h2>
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700">Title</label>
@@ -107,85 +182,14 @@ const DynamicPersonForm = () => {
                 ></textarea>
               </div>
 
-              <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-700">Address</label>
-                <input
-                  type="text"
-                  name="address"
-                  value={person.address}
-                  onChange={(e) => handleChange(index, e)}
-                  className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
-                />
-              </div>
-
-              <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-700">Latitude</label>
-                <input
-                  type="text"
-                  name="latitude"
-                  value={person.latitude}
-                  onChange={(e) => handleChange(index, e)}
-                  className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
-                />
-              </div>
-
-              <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-700">Longitude</label>
-                <input
-                  type="text"
-                  name="longitude"
-                  value={person.longitude}
-                  onChange={(e) => handleChange(index, e)}
-                  className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
-                />
-              </div>
-
-              <div className="flex flex-col items-center bg-cream-1 py-8">
-      <div className="max-w-4xl w-full space-y-8">
-        <button
-          onClick={addPair}
-          className="block w-full px-4 py-2 text-center bg-gray-200 border-b border-gray-300"
-        >
-          Button to add another dropdown-input pair
-        </button>
-        {pairs.map((pair, index) => (
-          <div key={pair.id} className="grid grid-cols-2 gap-4 mb-4">
-            <select
-              value={pair.dropdown}
-              onChange={(e) => {
-                const newPairs = [...pairs];
-                newPairs[index].dropdown = e.target.value;
-                setPairs(newPairs);
-              }}
-              className="w-full px-4 py-2 border-b border-gray-300 bg-gray-200"
-            >
-              <option value="">Dropdown</option>
-              
-              <option value="Option 1">Option 1</option>
-              <option value="Option 2">Option 2</option>
-
-            </select>
-            <input
-              type="text"
-              value={pair.input}
-              onChange={(e) => {
-                const newPairs = [...pairs];
-                newPairs[index].input = e.target.value;
-                setPairs(newPairs);
-              }}
-              placeholder="Input type text"
-              className="w-full px-4 py-2 border-b border-gray-300 bg-gray-200"
-            />
-          </div>
-        ))}
-      </div>
-    </div>
+  
               <button
                 onClick={() => removePerson(person.id)}
                 className="bg-red-500 text-white px-4 py-2 mt-4"
               >
                 Remove
               </button>
+            </div>
             </div>
           ))}
         </div>
@@ -197,6 +201,7 @@ const DynamicPersonForm = () => {
       <div className='flex justify-center mt-6'>
         <button onClick={handleSave} className="bg-[#EAA444] w-screen text-xl h-16 text-white px-4 mx-80">Save</button>
       </div>
+      
     </>
   );
 };

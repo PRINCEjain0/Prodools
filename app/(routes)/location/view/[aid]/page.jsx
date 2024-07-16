@@ -27,62 +27,7 @@ const DynamicPersonForm = () => {
       <div className="flex flex-col items-center bg-cream-1 py-8">
         <div className="max-w-4xl w-full space-y-8">
           {persons.map((person, personIndex) => (
-            <div key={person.id} className="p-8 border border-black shadow-lg bg-[#F6EFE6]">
-              <h2 className="text-2xl mb-6">Person details</h2>
-              <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-700">Title</label>
-                <input
-                  type="text"
-                  name="title"
-                  value={person.title}
-                  readOnly={viewOnly}
-                  className={`w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
-                />
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">First Name</label>
-                  <input
-                    type="text"
-                    name="firstName"
-                    value={person.firstName}
-                    readOnly={viewOnly}
-                    className={`w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">Middle Name</label>
-                  <input
-                    type="text"
-                    name="middleName"
-                    value={person.middleName}
-                    readOnly={viewOnly}
-                    className={`w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">Last Name</label>
-                  <input
-                    type="text"
-                    name="lastName"
-                    value={person.lastName}
-                    readOnly={viewOnly}
-                    className={`w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
-                  />
-                </div>
-              </div>
-
-              <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-700">Person Details</label>
-                <textarea
-                  name="details"
-                  value={person.details}
-                  readOnly={viewOnly}
-                  className={`w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
-                ></textarea>
-              </div>
-
+            <div key={person.id} >
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700">Address</label>
                 <input
@@ -157,6 +102,64 @@ const DynamicPersonForm = () => {
                   </div>
                 ))}
               </div>
+              <div className="p-8 border border-black shadow-lg bg-[#F6EFE6]">
+              <h2 className="text-2xl mb-6">Person details</h2>
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-700">Title</label>
+                <input
+                  type="text"
+                  name="title"
+                  value={person.title}
+                  readOnly={viewOnly}
+                  className={`w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
+                />
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">First Name</label>
+                  <input
+                    type="text"
+                    name="firstName"
+                    value={person.firstName}
+                    readOnly={viewOnly}
+                    className={`w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">Middle Name</label>
+                  <input
+                    type="text"
+                    name="middleName"
+                    value={person.middleName}
+                    readOnly={viewOnly}
+                    className={`w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">Last Name</label>
+                  <input
+                    type="text"
+                    name="lastName"
+                    value={person.lastName}
+                    readOnly={viewOnly}
+                    className={`w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
+                  />
+                </div>
+              </div>
+
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-700">Person Details</label>
+                <textarea
+                  name="details"
+                  value={person.details}
+                  readOnly={viewOnly}
+                  className={`w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
+                ></textarea>
+              </div>
+
+              
+            </div>
             </div>
           ))}
         </div>
