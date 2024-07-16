@@ -15,7 +15,7 @@ const AllPersons = () => {
       address: '123 Main St, City, Country',
       latitude: '12.345678',
       longitude: '98.765432',
-      dropboxes: 'Dropbox 1, Dropbox 2',
+      dropboxes: [{ id: 1, dropdown: 'hii', input: 'heyy' }],
     },
     {
       id: 2,
@@ -27,7 +27,7 @@ const AllPersons = () => {
       address: '456 Another St, City, Country',
       latitude: '23.456789',
       longitude: '87.654321',
-      dropboxes: 'Dropbox A, Dropbox B',
+      dropboxes: [{ id: 2, dropdown: 'hii', input: 'heyy' }],
     },
     {
       id: 3,
@@ -39,7 +39,7 @@ const AllPersons = () => {
       address: '789 Sample Rd, City, Country',
       latitude: '34.567890',
       longitude: '76.543210',
-      dropboxes: 'Dropbox X, Dropbox Y',
+      dropboxes: [{ id: 3, dropdown: 'hii', input: 'heyy' }],
     },
   ]);
 
@@ -135,19 +135,47 @@ const AllPersons = () => {
 
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700">Dropboxes</label>
-                <input
-                  type="text"
-                  value={person.dropboxes}
-                  readOnly
-                  className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
-                />
+                <button
+                
+                  className={`block w-full px-4 py-2 text-center border border-gray-300 bg-gray-200 mb-4 `}
+                
+                >
+                  Button to add another dropdown-input pair
+                </button>
+                {person.dropboxes.map((dropbox, dropboxIndex) => (
+                  <div key={dropbox.id} className="grid grid-cols-2 gap-4 mb-4">
+                    <select
+                      value={dropbox.dropdown}
+                      onChange={(e) => {
+                        const newPersons = [...persons];
+                        newPersons[personIndex].dropboxes[dropboxIndex].dropdown = e.target.value;
+                        setPersons(newPersons);
+                      }}
+                      className={`w-full px-4 py-2 border border-gray-300 bg-gray-200`}
+                      
+                    >
+                      <option value="">Dropdown</option>
+                      {/* Add your dropdown options here */}
+                      <option value="Option 1">Option 1</option>
+                      <option value="Option 2">Option 2</option>
+                    </select>
+                    <input
+                      type="text"
+                      value={dropbox.input}
+                      onChange={(e) => {
+                        const newPersons = [...persons];
+                        newPersons[personIndex].dropboxes[dropboxIndex].input = e.target.value;
+                        setPersons(newPersons);
+                      }}
+                      placeholder="Input type text"
+                      className={`w-full px-4 py-2 border  bg-gray-200`}
+                      
+                    />
+                  </div>
+                ))}
               </div>
 
-              <div className="mt-4">
-                <Link href={`/location/edit/${person.id}`} className="bg-green-600 text-white px-4 py-2 rounded">
-                  Edit
-                </Link>
-              </div>
+          
             </div>
           ))}
         </div>
