@@ -19,6 +19,49 @@ const AllPersons = () => {
       dropboxes: [{ id: 1, dropdown: 'hii', input: 'heyy' }],
     },
   ]);
+ 
+    const [selectedFile, setSelectedFile] = useState(null);
+    const [previewUrl, setPreviewUrl] = useState(null);
+  
+    const handleFileChange = (event) => {
+      const selectedFile = event.target.files[0];
+      setSelectedFile(selectedFile);
+  
+      if (selectedFile) {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          setPreviewUrl(reader.result);
+        };
+        reader.readAsDataURL(selectedFile);
+      } else {
+        setPreviewUrl(null);
+      }
+    };
+  
+    const handleSubmit = async (event) => {
+      event.preventDefault();
+  
+      const formData = new FormData();
+      formData.append('file', selectedFile);
+  
+      try {
+        const response = await fetch('/api/upload', { // Replace with your API endpoint
+          method: 'POST',
+          body: formData,
+        });
+  
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+  
+        const data = await response.json();
+        console.log(data); // Handle successful upload
+      } catch (error) {
+        console.error(error);
+        // Handle upload error
+      }
+    };
+  
 
   
 
@@ -31,17 +74,18 @@ const AllPersons = () => {
           
           {persons.map((person, personIndex) => (
             
-            <div key={person.id} className="p-8 border border-black shadow-lg bg-[#F6EFE6]">
+            <div key={person.id} >
               <div key={person.id} className="mt-8">
                   <h2 className="text-2xl mb-6">Announcement</h2>
-                  <div className="mb-4">
-                    <label className="block text-sm font-medium text-gray-700">Poster</label>
-                    <img
-                      src={person.poster}
-                      alt="person Poster"
-                      className="w-full h-auto mt-1 border-b border-gray-300"
-                    />
-                  </div>
+                  <div>
+      <form onSubmit={handleSubmit}>
+        <input type="file" onChange={handleFileChange} />
+        <button className='bg-green-400 text-md w-32 h-12 text-white py-1 ml-80' type="submit">Upload</button>
+      </form>
+      {previewUrl && (
+        <img src={previewUrl} alt="Preview" />
+      )}
+    </div>
 
                   <div className="mb-4">
                     <label className="block text-sm font-medium text-gray-700">Text</label>
@@ -52,59 +96,7 @@ const AllPersons = () => {
                     ></textarea>
                   </div>
 
-          
-                  </div>
-              <h2 className="text-2xl mb-6">Person Details</h2>
-              <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-700">Title</label>
-                <input
-                  type="text"
-                  value={person.title}
-                  readOnly
-                  className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
-                />
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">First Name</label>
-                  <input
-                    type="text"
-                    value={person.firstName}
-                    readOnly
-                    className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">Middle Name</label>
-                  <input
-                    type="text"
-                    value={person.middleName}
-                    readOnly
-                    className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">Last Name</label>
-                  <input
-                    type="text"
-                    value={person.lastName}
-                    readOnly
-                    className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
-                  />
-                </div>
-              </div>
-
-              <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-700">Person Details</label>
-                <textarea
-                  value={person.details}
-                  readOnly
-                  className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
-                ></textarea>
-              </div>
-
-              <div className="mb-4">
+                  <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700">Address</label>
                 <input
                   type="text"
@@ -174,7 +166,63 @@ const AllPersons = () => {
                 ))}
               </div>
 
+          <div className="p-8 border border-black shadow-lg bg-[#F6EFE6]">
+                 
+              <h2 className="text-2xl mb-6">Person Details</h2>
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-700">Title</label>
+                <input
+                  type="text"
+                  value={person.title}
+                  readOnly
+                  className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
+                />
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">First Name</label>
+                  <input
+                    type="text"
+                    value={person.firstName}
+                    readOnly
+                    className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">Middle Name</label>
+                  <input
+                    type="text"
+                    value={person.middleName}
+                    readOnly
+                    className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">Last Name</label>
+                  <input
+                    type="text"
+                    value={person.lastName}
+                    readOnly
+                    className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
+                  />
+                </div>
+              </div>
+
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-700">Person Details</label>
+                <textarea
+                  value={person.details}
+                  readOnly
+                  className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
+                ></textarea>
+              </div>
+
               
+
+              
+            </div>
+            </div>
             </div>
           ))}
         </div>

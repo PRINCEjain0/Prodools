@@ -22,6 +22,8 @@ const AllPersons = () => {
 
   
 
+  
+
   return (
     <>
       <Navbar />
