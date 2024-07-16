@@ -51,13 +51,11 @@ const AllPersons = () => {
       <div className="flex flex-col items-center bg-cream-1 py-8">
         <h1 className="text-3xl mb-6">All Persons</h1>
         <div className="max-w-4xl w-full space-y-8">
-          {persons.map((person) => (
-            <div key={person.id} >
-                    <div className="mb-4">
+        <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700">Address</label>
                 <input
                   type="text"
-                  value={person.address}
+                  value={persons[0].address}
                   readOnly
                   className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
                 />
@@ -67,7 +65,7 @@ const AllPersons = () => {
                 <label className="block text-sm font-medium text-gray-700">Latitude</label>
                 <input
                   type="text"
-                  value={person.latitude}
+                  value={persons[0].latitude}
                   readOnly
                   className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
                 />
@@ -77,7 +75,7 @@ const AllPersons = () => {
                 <label className="block text-sm font-medium text-gray-700">Longitude</label>
                 <input
                   type="text"
-                  value={person.longitude}
+                  value={persons[0].longitude}
                   readOnly
                   className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
                 />
@@ -92,7 +90,7 @@ const AllPersons = () => {
                 >
                   Button to add another dropdown-input pair
                 </button>
-                {person.dropboxes.map((dropbox, dropboxIndex) => (
+                {persons[0].dropboxes.map((dropbox, dropboxIndex) => (
                   <div key={dropbox.id} className="grid grid-cols-2 gap-4 mb-4">
                     <select
                       value={dropbox.dropdown}
@@ -124,6 +122,10 @@ const AllPersons = () => {
                   </div>
                 ))}
               </div>
+          {persons.map((person) => (
+            <div key={persons[0].id} >
+                    
+
               <div className="p-8 border border-black shadow-lg bg-[#F6EFE6]"> 
               <h2 className="text-2xl mb-6">Person details</h2>
               <div className="mb-4">

@@ -47,11 +47,7 @@ const AllPersons = () => {
       <div className="flex flex-col items-center bg-cream-1 py-8">
         <div className="max-w-4xl w-full space-y-8">
 
-         
-
-          {persons.map((person) => (
-            <div key={person.id} >
-               <div className="mb-4">
+        <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700">Address</label>
             <input
               type="text"
@@ -119,6 +115,10 @@ const AllPersons = () => {
               ))}
             </div>
           </div>
+
+          {persons.map((person) => (
+            <div key={person.id} >
+      
           <div className="p-8 border border-black shadow-lg bg-[#F6EFE6]">
               <h2 className="text-2xl mb-6">Person details</h2>
               <div className="mb-4">
