@@ -20,6 +20,7 @@ const AllPersons = () => {
     },
     {
       id: 2,
+      
       title: 'Another Title',
       firstName: 'Krish',
       middleName: '',
