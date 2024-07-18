@@ -117,7 +117,7 @@ const AllPersons = () => {
 
           {announcement.text && (
             <div className="mb-4">
-              <h2 className="text-2xl mb-6">Announcement</h2>
+              <h2 className="text-4xl mb-6 libre-baskerville-regular">Announcement</h2>
               <form onSubmit={handleSubmit}>
                 <div {...getRootProps()} className="border-dashed border-2 border-gray-400 p-4">
                   <input {...getInputProps()} />
@@ -178,7 +178,7 @@ const AllPersons = () => {
               <button
                 type="button"
                 onClick={handleAddDropbox}
-                className="block w-full px-4 py-2 text-center border border-gray-300 bg-white mb-4"
+                className="block w-full px-4 py-2 text-center border border-gray-300  mb-4"
               >
                 Add Dropdown-Input Pair
               </button>

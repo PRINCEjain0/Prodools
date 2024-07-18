@@ -48,7 +48,7 @@ const AllPersons = () => {
         <div className="max-w-4xl w-full space-y-8">
           
         <div className="p-8 border border-black shadow-lg bg-[#F6EFE6]">
-        <h1 className='text-4xl'>Location</h1>
+        <h1 className='text-4xl libre-baskerville-regular'>Location</h1>
         <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700">Address</label>
             <input
@@ -80,11 +80,11 @@ const AllPersons = () => {
           </div>
           </div>
 
-          <div className="flex flex-col items-center bg-cream-1 py-8">
+          <div className="flex flex-col items-center  py-8">
             <div className="max-w-4xl w-full space-y-8">
               <button
                 onClick={addPair}
-                className="block w-full px-4 py-2 text-center bg-white border-b border-gray-300"
+                className="block w-full px-4 py-2 text-center  border border-gray-300"
               >
                 Button to add another dropdown-input pair
               </button>
@@ -184,17 +184,17 @@ const AllPersons = () => {
             </div>
             </div>
           ))}
-        </div>
-      </div>
-      </div>
-      <div className="bg-cream-1">
-        <div className="flex justify-between">
-          <button onClick={addPerson} className="bg-black text-md w-32 h-12 text-white py-1 ml-80">Add Person</button>
+          <div className="flex justify-between mt-4">
+          <button onClick={addPerson} className="bg-black text-md w-32 h-12 text-white py-1 ">Add Person</button>
         </div>
         <div className="flex justify-center mt-6">
-          <button className="bg-[#EAA444] w-screen text-xl h-16 text-white mx-80">Save</button>
+          <button className="bg-[#EAA444] w-screen text-xl h-16 text-white ">Save</button>
         </div>
+        </div>
+        
       </div>
+      </div>
+      
      
     </>
   );

@@ -37,7 +37,7 @@ const AllPersons = () => {
 
           {persons.map((person, personIndex) => (
             <div key={person.id} className="mt-8">
-              <h2 className="text-2xl mb-6">Announcement</h2>
+              <h2 className="text-4xl mb-6 libre-baskerville-regular">Announcement</h2>
               <div>
       <img
         src={person.poster} // Path to the image file

@@ -50,7 +50,7 @@ const DynamicPersonForm = () => {
         <div className="max-w-4xl w-full space-y-8">
         <div className="p-8 border border-black shadow-lg bg-[#F6EFE6]">
 
-        <h1 className='text-4xl'>Location</h1>
+        <h1 className='text-4xl libre-baskerville-regular'>Location</h1>
 
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700">Address</label>
@@ -88,7 +88,7 @@ const DynamicPersonForm = () => {
 
           <button
             onClick={addPair}
-            className="block w-full px-4 py-2 text-center bg-white border-b border-gray-300"
+            className="block w-full px-4 py-2 text-center border border-gray-300"
           >
             Button to add another dropdown-input pair
           </button>
@@ -101,7 +101,7 @@ const DynamicPersonForm = () => {
                   newPairs[index].dropdown = e.target.value;
                   setPairs(newPairs);
                 }}
-                className="w-full px-4 py-2 border-b border-gray-300 bg-white"
+                className="w-full px-4 mt-2 py-2 border-b border-gray-300 bg-white"
               >
                 <option value="">Dropdown</option>
                 <option value="Option 1">Option 1</option>
@@ -116,7 +116,7 @@ const DynamicPersonForm = () => {
                   setPairs(newPairs);
                 }}
                 placeholder="Input type text"
-                className="w-full px-4 py-2 border-b border-gray-300 bg-white"
+                className="w-full px-4 mt-2 py-2 border-b border-gray-300 bg-white"
               />
             </div>
           ))}
@@ -186,17 +186,17 @@ const DynamicPersonForm = () => {
               </button>
             </div>
           ))}
-
+<div className="flex justify-between mt-4">
+            <button onClick={addPerson} className="bg-black text-md w-32  h-16 text-white px-4 py-1">Add Person</button>
+          </div>
+      <div className="flex justify-center mt-6">
+        <button onClick={handleSave} className="bg-[#EAA444] w-screen text-xl h-16 text-white px-4 ">Save</button>
+      </div>
           
         </div>
       </div>
       </div>
-      <div className="flex justify-between mt-8">
-            <button onClick={addPerson} className="bg-black text-md w-32 ml-80 h-16 text-white px-4 py-1">Add Person</button>
-          </div>
-      <div className="flex justify-center mt-6">
-        <button onClick={handleSave} className="bg-[#EAA444] w-screen text-xl h-16 text-white px-4 mx-80">Save</button>
-      </div>
+      
     </>
   );
 };

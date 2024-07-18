@@ -28,7 +28,7 @@ const DynamicPersonForm = () => {
         <div className="max-w-4xl w-full space-y-8">
         <div className="p-8 border border-black shadow-lg bg-[#F6EFE6]">
 
-        <h1 className='text-4xl'>Location</h1>
+        <h1 className='text-4xl libre-baskerville-regular'>Location</h1>
 
         <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700">Address</label>
