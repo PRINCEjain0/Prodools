@@ -156,7 +156,7 @@ const AllPersons = () => {
                 <button
                   type="button"
                   onClick={() => handleAddDropbox(personIndex)}
-                  className="block w-full px-4 py-2 text-center border border-gray-300 bg-gray-200 mb-4"
+                  className="block w-full px-4 py-2 text-center border border-gray-300 bg-white mb-4"
                 >
                   Add Dropdown-Input Pair
                 </button>
@@ -165,7 +165,7 @@ const AllPersons = () => {
                     <select
                       value={dropbox.dropdown}
                       onChange={(e) => handleChangeDropdown(personIndex, dropboxIndex, e)}
-                      className="w-full px-4 py-2 border border-gray-300 bg-gray-200"
+                      className="w-full px-4 py-2 border border-gray-300 bg-white"
                     >
                       <option value="">Dropdown</option>
                       {/* Add your dropdown options here */}
@@ -177,7 +177,7 @@ const AllPersons = () => {
                       value={dropbox.input}
                       onChange={(e) => handleChangeInput(personIndex, dropboxIndex, e)}
                       placeholder="Input type text"
-                      className="w-full px-4 py-2 border border-gray-300 bg-gray-200"
+                      className="w-full px-4 py-2 border border-gray-300 bg-white"
                     />
                   </div>
                 ))}

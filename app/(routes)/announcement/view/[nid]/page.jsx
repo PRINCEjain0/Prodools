@@ -33,6 +33,8 @@ const AllPersons = () => {
       <Navbar />
       <div className="flex flex-col items-center bg-cream-1 py-8">
         <div className="max-w-4xl w-full space-y-8">
+        <div className="p-8 border border-black shadow-lg bg-[#F6EFE6]">
+
           {persons.map((person, personIndex) => (
             <div key={person.id} className="mt-8">
               <h2 className="text-2xl mb-6">Announcement</h2>
@@ -53,7 +55,7 @@ const AllPersons = () => {
                   value={person.text}
                   
                   readOnly={viewOnly}
-                  className={`w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}                ></textarea>
+                  className={`w-full px-4 font-light py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}                ></textarea>
               </div>
 
               <div className="mb-4">
@@ -64,10 +66,10 @@ const AllPersons = () => {
                   value={person.address}
                   
                   readOnly={viewOnly}
-                  className={`w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
+                  className={`w-full px-4 py-2 font-light mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
                 />              
               </div>
-
+              <div  className="grid grid-cols-2 gap-4">
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700">Latitude</label>
                 <input
@@ -75,7 +77,7 @@ const AllPersons = () => {
                   type="text"
                   value={person.latitude}
                   readOnly={viewOnly}
-                  className={`w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
+                  className={`w-full px-4 py-2  font-light mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
                 />
               </div>
 
@@ -86,16 +88,16 @@ const AllPersons = () => {
                   type="text"
                   value={person.longitude}
                   readOnly={viewOnly}
-                  className={`w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
+                  className={`w-full px-4 py-2 font-light mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
                 />
               </div>
-
+</div>
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700">Dropboxes</label>
                 <button
                   type="button"
                  
-                  className={`block w-full px-4 py-2 text-center border border-gray-300 mb-4 ${viewOnly ? 'bg-gray-300 cursor-not-allowed' : 'bg-gray-200'}`}
+                  className={`block w-full px-4 font-light py-2 text-center border border-gray-300 mb-4  ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
                   disabled={viewOnly}                >
                   Add Dropdown-Input Pair
                 </button>
@@ -104,7 +106,7 @@ const AllPersons = () => {
                     <select
                       value={dropbox.dropdown}
                       onChange={(e) => handleChangeDropdown(personIndex, dropboxIndex, e)}
-                      className={`w-full px-4 py-2 border ${viewOnly ? 'border-gray-300 cursor-not-allowed' : 'border-gray-300'} bg-gray-200`}
+                      className={`w-full px-4 font-light py-2 border  ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
                       disabled={viewOnly}                    >
                       <option value="">Dropdown</option>
                       {/* Add your dropdown options here */}
@@ -116,34 +118,34 @@ const AllPersons = () => {
                       value={dropbox.input}
                       onChange={(e) => handleChangeInput(personIndex, dropboxIndex, e)}
                       placeholder="Input type text"
-                      className={`w-full px-4 py-2 border ${viewOnly ? 'border-gray-300 cursor-not-allowed' : 'border-gray-300'} bg-gray-200`}
+                      className={`w-full px-4 py-2  font-light border ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
                       readOnly={viewOnly}                    />
                   </div>
                 ))}
               </div>
 
-              <div className="p-8 border border-black shadow-lg bg-[#F6EFE6]">
+              <div className="p-8 border border-amber-900  shadow-lg bg-[#F6EFE6]">
                 <h2 className="text-2xl mb-6">Person Details</h2>
                 <div className="mb-4">
-                  <label className="block text-sm font-medium text-gray-700">Title</label>
+                  <label className="block text-sm  font-medium text-gray-700">Title</label>
                   <input
                     name="title"
                     type="text"
                     value={person.title}
                     readOnly={viewOnly}
-                    className={`w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
+                    className={`w-full px-4 py-2 font-light mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
                   />
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700">First Name</label>
+                    <label className="block text-sm  font-medium text-gray-700">First Name</label>
                     <input
                       name="firstName"
                       type="text"
                       value={person.firstName}
                       readOnly={viewOnly}
-                      className={`w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
+                      className={`w-full px-4 py-2 font-light mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
                     />
                   </div>
                   <div>
@@ -153,7 +155,7 @@ const AllPersons = () => {
                       type="text"
                       value={person.middleName}
                       readOnly={viewOnly}
-                      className={`w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
+                      className={`w-full px-4 py-2 font-light mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
                     />
                   </div>
                   <div>
@@ -163,7 +165,7 @@ const AllPersons = () => {
                       type="text"
                       value={person.lastName}
                       readOnly={viewOnly}
-                    className={`w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
+                    className={`w-full px-4 py-2 mt-1 font-light border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
                     />
                   </div>
                 </div>
@@ -174,7 +176,7 @@ const AllPersons = () => {
                     name="details"
                     value={person.details}
                     readOnly={viewOnly}
-                  className={`w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
+                  className={`w-full px-4 py-2 mt-1 font-light border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
                   ></textarea>
                 </div>
               </div>
@@ -184,6 +186,7 @@ const AllPersons = () => {
          
         </div>
         
+      </div>
       </div>
     </>
   );

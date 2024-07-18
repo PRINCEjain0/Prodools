@@ -8,20 +8,14 @@ const PersonAddressPage = () => {
     { id: 2, firstName: 'John', middleName: 'D.', lastName: 'Doe', details: "John's details go here." }
   ]);
 
-  const addPerson = () => {
-    setPersons([...persons, { id: Date.now(), firstName: '', middleName: '', lastName: '', details: '' }]);
-  };
-
-  const removePerson = (id) => {
-    setPersons(persons.filter(person => person.id !== id));
-  };
+  
 
   return (
     <>
       <Navbar />
       <div className="flex flex-col md:flex-row items-start bg-cream-1 py-8 h-screen">
         <div className="w-full md:w-1/2 p-4 bg-[#F0E4D7] border-r border-gray-300 h-full overflow-y-auto">
-          <h2 className="text-2xl mb-6"> (Person)</h2>
+          <h2 className="text-2xl mb-6">(Person)</h2>
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700">First Name</label>
             <input
@@ -58,7 +52,8 @@ const PersonAddressPage = () => {
                     newPersons[index].firstName = e.target.value;
                     setPersons(newPersons);
                   }}
-                  className="w-full px-4 py-2 mt-1 border border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
+                  className="w-full px-4 py-2 mt-1 border border-gray-300 focus:border-gray-400 focus:ring-0 outline-none cursor-not-allowed"
+                  disabled
                 />
               </div>
               <div className="mb-4">
@@ -71,7 +66,8 @@ const PersonAddressPage = () => {
                     newPersons[index].middleName = e.target.value;
                     setPersons(newPersons);
                   }}
-                  className="w-full px-4 py-2 mt-1 border border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
+                  className="w-full px-4 py-2 mt-1 border border-gray-300 focus:border-gray-400 focus:ring-0 outline-none cursor-not-allowed"
+                  disabled
                 />
               </div>
               <div className="mb-4">
@@ -84,7 +80,8 @@ const PersonAddressPage = () => {
                     newPersons[index].lastName = e.target.value;
                     setPersons(newPersons);
                   }}
-                  className="w-full px-4 py-2 mt-1 border border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
+                  className="w-full px-4 py-2 mt-1 border border-gray-300 focus:border-gray-400 focus:ring-0 outline-none cursor-not-allowed"
+                  disabled
                 />
               </div>
               <div className="mb-4">
@@ -96,20 +93,14 @@ const PersonAddressPage = () => {
                     newPersons[index].details = e.target.value;
                     setPersons(newPersons);
                   }}
-                  className="w-full px-4 py-2 mt-1 border border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
+                  className="w-full px-4 py-2 mt-1 border border-gray-300 focus:border-gray-400 focus:ring-0 outline-none cursor-not-allowed"
+                  disabled
                 ></textarea>
               </div>
-              <button
-                onClick={() => removePerson(person.id)}
-                className="bg-red-500 text-white px-4 py-2 mt-4"
-              >
-                Remove
-              </button>
+              
             </div>
           ))}
-          <div className="flex justify-center mt-8">
-            <button onClick={addPerson} className="bg-black text-md w-32 h-16 text-white px-4 py-1">Add Person</button>
-          </div>
+          
         </div>
       </div>
     </>

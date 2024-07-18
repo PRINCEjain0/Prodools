@@ -1,6 +1,7 @@
 "use client";
 import Navbar from '@/components/Navbar';
 import React, { useState } from 'react';
+import { useDropzone } from 'react-dropzone';
 
 const AllPersons = () => {
   const [persons, setPersons] = useState([
@@ -32,6 +33,23 @@ const AllPersons = () => {
       dropboxes: [{ id: 2, dropdown: 'hii', input: 'heyy' }],
     },
   ]);
+
+  const onDrop = (acceptedFiles) => {
+    const file = acceptedFiles[0];
+    setSelectedFile(file);
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setPreviewUrl(reader.result);
+      };
+      reader.readAsDataURL(file);
+    } else {
+      setPreviewUrl(null);
+    }
+  };
+
+  const { getRootProps, getInputProps } = useDropzone({ onDrop });
 
   const [selectedFile, setSelectedFile] = useState(null);
   const [previewUrl, setPreviewUrl] = useState(null);
@@ -83,27 +101,32 @@ const AllPersons = () => {
       <Navbar />
       <div className="flex flex-col items-center bg-cream-1 py-8">
         <div className="max-w-4xl w-full space-y-8">
+        <div className="p-8 border border-black shadow-lg bg-[#F6EFE6]">
+
         <h2 className="text-2xl mb-6">Announcement</h2>
-              <div>
-                <form onSubmit={handleSubmit}>
-                  <input type="file" readOnly onChange={handleFileChange} />
-                  <button className="bg-green-400 text-md w-32 h-12 text-white py-1 ml-80" type="submit">Upload</button>
-                </form>
-                {previewUrl && (
+          <div>
+            <form onSubmit={handleSubmit}>
+              <div {...getRootProps()} className="border-dashed border-2 border-gray-400 p-4">
+                <input {...getInputProps()} />
+                {previewUrl ? (
                   <img src={previewUrl} alt="Preview" />
+                ) : (
+                  <p>Drag 'n' drop some files here, or click to select files</p>
                 )}
               </div>
+              <button className="bg-green-400 text-md w-32 h-12 text-white py-1 mt-2" type="submit">Upload</button>
+            </form>
+          </div>
 
-              <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-700">Text</label>
-                <textarea
-                readOnly
-                  name="text"
-                  value={persons[0].text}
-                  
-                  className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
-                ></textarea>
-              </div>
+          <div className="mb-4">
+            <label className="block text-sm font-medium text-gray-700">Text</label>
+            <textarea
+              readOnly
+              name="text"
+              value={persons[0].text}
+              className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
+            ></textarea>
+          </div>
 
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700">Address</label>
@@ -115,7 +138,7 @@ const AllPersons = () => {
                   className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
                 />
               </div>
-
+              <div  className="grid grid-cols-2 gap-4">
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700">Latitude</label>
                 <input
@@ -137,13 +160,14 @@ const AllPersons = () => {
                   className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
                 />
               </div>
+              </div>
 
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700">Dropboxes</label>
                 <button
                   type="button"
                   readOnly
-                  className="block w-full px-4 py-2 text-center border border-gray-300 bg-gray-200 mb-4"
+                  className="block w-full px-4 py-2 text-center border border-gray-300 bg-white mb-4"
                 >
                   Add Dropdown-Input Pair
                 </button>
@@ -152,7 +176,7 @@ const AllPersons = () => {
                     <select
                       value={dropbox.dropdown}
                       readOnly
-                      className="w-full px-4 py-2 border border-gray-300 bg-gray-200"
+                      className="w-full px-4 py-2 border border-gray-300 bg-white"
                     >
                       <option value="">Dropdown</option>
                       {/* Add your dropdown options here */}
@@ -164,7 +188,7 @@ const AllPersons = () => {
                       value={dropbox.input}
                       readOnly
                       placeholder="Input type text"
-                      className="w-full px-4 py-2 border border-gray-300 bg-gray-200"
+                      className="w-full px-4 py-2 border border-gray-300 bg-white"
                     />
                   </div>
                 ))}
@@ -173,7 +197,7 @@ const AllPersons = () => {
             <div key={person.id} className="mt-8">
              
 
-              <div className="p-8 border border-black shadow-lg bg-[#F6EFE6]">
+              <div className="p-8 border border-amber-900  shadow-lg bg-[#F6EFE6]">
                 <h2 className="text-2xl mb-6">Person Details</h2>
                 <div className="mb-4">
                   <label className="block text-sm font-medium text-gray-700">Title</label>
@@ -235,6 +259,7 @@ const AllPersons = () => {
           
         </div>
         
+      </div>
       </div>
     </>
   );

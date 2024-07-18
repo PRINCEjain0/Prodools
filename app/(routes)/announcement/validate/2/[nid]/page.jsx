@@ -8,13 +8,7 @@ const AddressPage = () => {
     { id: 2, address: '456 Side St, Town, Country', latitude: '23.456789', longitude: '87.654321' }
   ]);
 
-  const addAddress = () => {
-    setAddresses([...addresses, { id: Date.now(), address: '', latitude: '', longitude: '' }]);
-  };
-
-  const removeAddress = (id) => {
-    setAddresses(addresses.filter(address => address.id !== id));
-  };
+ 
 
   return (
     <>
@@ -60,7 +54,8 @@ const AddressPage = () => {
                     newAddresses[index].address = e.target.value;
                     setAddresses(newAddresses);
                   }}
-                  className="w-full px-4 py-2 mt-1 border border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
+                  className="w-full px-4 py-2 mt-1 border border-gray-300 focus:border-gray-400 focus:ring-0 outline-none cursor-not-allowed"
+                  disabled
                 />
               </div>
               <div className="grid grid-cols-2 gap-4">
@@ -74,7 +69,8 @@ const AddressPage = () => {
                       newAddresses[index].latitude = e.target.value;
                       setAddresses(newAddresses);
                     }}
-                    className="w-full px-4 py-2 mt-1 border border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
+                    className="w-full px-4 py-2 mt-1 border border-gray-300 focus:border-gray-400 focus:ring-0 outline-none cursor-not-allowed"
+                    disabled
                   />
                 </div>
                 <div>
@@ -87,21 +83,15 @@ const AddressPage = () => {
                       newAddresses[index].longitude = e.target.value;
                       setAddresses(newAddresses);
                     }}
-                    className="w-full px-4 py-2 mt-1 border border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
+                    className="w-full px-4 py-2 mt-1 border border-gray-300 focus:border-gray-400 focus:ring-0 outline-none cursor-not-allowed"
+                    disabled
                   />
                 </div>
               </div>
-              <button
-                onClick={() => removeAddress(address.id)}
-                className="bg-red-500 text-white px-4 py-2 mt-4"
-              >
-                Remove
-              </button>
+              
             </div>
           ))}
-          <div className="flex justify-center mt-8">
-            <button onClick={addAddress} className="bg-black text-md w-32 h-16 text-white px-4 py-1">Add Address</button>
-          </div>
+          
         </div>
       </div>
     </>

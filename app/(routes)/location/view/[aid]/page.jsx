@@ -26,6 +26,10 @@ const DynamicPersonForm = () => {
       <Navbar />
       <div className="flex flex-col items-center bg-cream-1 py-8">
         <div className="max-w-4xl w-full space-y-8">
+        <div className="p-8 border border-black shadow-lg bg-[#F6EFE6]">
+
+        <h1 className='text-4xl'>Location</h1>
+
         <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700">Address</label>
                 <input
@@ -33,10 +37,10 @@ const DynamicPersonForm = () => {
                   name="address"
                   value={persons[0].address}
                   readOnly={viewOnly}
-                  className={`w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
+                  className={`w-full px-4 font-light py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
                 />
               </div>
-
+<div  className="grid grid-cols-2 gap-4">
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700">Latitude</label>
                 <input
@@ -44,7 +48,7 @@ const DynamicPersonForm = () => {
                   name="latitude"
                   value={persons[0].latitude}
                   readOnly={viewOnly}
-                  className={`w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
+                  className={`w-full px-4 font-light py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
                 />
               </div>
 
@@ -55,15 +59,15 @@ const DynamicPersonForm = () => {
                   name="longitude"
                   value={persons[0].longitude}
                   readOnly={viewOnly}
-                  className={`w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
+                  className={`w-full px-4 font-light py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
                 />
               </div>
-
+</div>
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700">Dropboxes</label>
                 <button
                 
-                  className={`block w-full px-4 py-2 text-center border border-gray-300 mb-4 ${viewOnly ? 'bg-gray-300 cursor-not-allowed' : 'bg-gray-200'}`}
+                  className={`block w-full font-light px-4 py-2 text-center border border-gray-300 mb-4 ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
                   disabled={viewOnly}
                 >
                   Button to add another dropdown-input pair
@@ -77,7 +81,7 @@ const DynamicPersonForm = () => {
                         newPersons[personIndex].dropboxes[dropboxIndex].dropdown = e.target.value;
                         setPersons(newPersons);
                       }}
-                      className={`w-full px-4 py-2 border ${viewOnly ? 'border-gray-300 cursor-not-allowed' : 'border-gray-300'} bg-gray-200`}
+                      className={`w-full px-4 font-light py-2 border ${viewOnly ? 'border-gray-300 cursor-not-allowed' : 'border-gray-300'} bg-gray-200`}
                       disabled={viewOnly}
                     >
                       <option value="">Dropdown</option>
@@ -94,7 +98,7 @@ const DynamicPersonForm = () => {
                         setPersons(newPersons);
                       }}
                       placeholder="Input type text"
-                      className={`w-full px-4 py-2 border ${viewOnly ? 'border-gray-300 cursor-not-allowed' : 'border-gray-300'} bg-gray-200`}
+                      className={`w-full px-4 font-light py-2 border ${viewOnly ? 'border-gray-300 cursor-not-allowed' : 'border-gray-300'} bg-gray-200`}
                       readOnly={viewOnly}
                     />
                   </div>
@@ -103,7 +107,7 @@ const DynamicPersonForm = () => {
           {persons.map((person, personIndex) => (
             <div key={persons[0].id} >
              
-              <div className="p-8 border border-black shadow-lg bg-[#F6EFE6]">
+              <div className="p-8 border border-amber-900  shadow-lg bg-[#F6EFE6]">
               <h2 className="text-2xl mb-6">Person details</h2>
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700">Title</label>
@@ -112,7 +116,7 @@ const DynamicPersonForm = () => {
                   name="title"
                   value={person.title}
                   readOnly={viewOnly}
-                  className={`w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
+                  className={`w-full px-4 py-2 font-light mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
                 />
               </div>
 
@@ -124,7 +128,7 @@ const DynamicPersonForm = () => {
                     name="firstName"
                     value={person.firstName}
                     readOnly={viewOnly}
-                    className={`w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
+                    className={`w-full px-4 py-2 font-light mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
                   />
                 </div>
                 <div>
@@ -134,7 +138,7 @@ const DynamicPersonForm = () => {
                     name="middleName"
                     value={person.middleName}
                     readOnly={viewOnly}
-                    className={`w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
+                    className={`w-full px-4 py-2 font-light mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
                   />
                 </div>
                 <div>
@@ -144,7 +148,7 @@ const DynamicPersonForm = () => {
                     name="lastName"
                     value={person.lastName}
                     readOnly={viewOnly}
-                    className={`w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
+                    className={`w-full px-4 py-2  font-light mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
                   />
                 </div>
               </div>
@@ -155,7 +159,7 @@ const DynamicPersonForm = () => {
                   name="details"
                   value={person.details}
                   readOnly={viewOnly}
-                  className={`w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
+                  className={`w-full px-4 py-2 mt-1 font-light border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
                 ></textarea>
               </div>
 
@@ -164,6 +168,7 @@ const DynamicPersonForm = () => {
             </div>
           ))}
         </div>
+      </div>
       </div>
     </>
   );

@@ -1,7 +1,3 @@
-
-
-
-
 "use client";
 import Navbar from '@/components/Navbar';
 import React, { useState } from 'react';
@@ -41,13 +37,7 @@ const AnnouncementPage = () => {
     }
   };
 
-  const addSimilarAnnouncement = () => {
-    setSimilarAnnouncements([...similarAnnouncements, { id: Date.now(), image: null, text: '' }]);
-  };
-
-  const removeAnnouncement = (id) => {
-    setSimilarAnnouncements(similarAnnouncements.filter(announcement => announcement.id !== id));
-  };
+  
 
   return (
     <>
@@ -86,7 +76,8 @@ const AnnouncementPage = () => {
                 <input
                   type="file"
                   onChange={(e) => handleFileChange(index, e)}
-                  className="w-full px-4 py-2 mt-1 border border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
+                  className="w-full px-4 py-2 mt-1 border border-gray-300 focus:border-gray-400 focus:ring-0 outline-none cursor-not-allowed"
+                  disabled
                 />
                 {similarAnnouncement.image && (
                   <img src={similarAnnouncement.image} alt="Similar Announcement" className="mt-4 max-h-64" />
@@ -97,20 +88,14 @@ const AnnouncementPage = () => {
                 <textarea
                   value={similarAnnouncement.text}
                   onChange={(e) => handleTextChange(index, e)}
-                  className="w-full px-4 py-2 mt-1 border border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
+                  className="w-full px-4 py-2 mt-1 border border-gray-300 focus:border-gray-400 focus:ring-0 outline-none cursor-not-allowed"
+                  disabled
                 ></textarea>
               </div>
-              <button
-                onClick={() => removeAnnouncement(similarAnnouncement.id)}
-                className="bg-red-500 text-white px-4 py-2 mt-4"
-              >
-                Remove
-              </button>
+              
             </div>
           ))}
-          <div className="flex justify-center mt-8">
-            <button onClick={addSimilarAnnouncement} className="bg-black text-md w-36 h-16 text-white px-4 py-1">Add Announcement</button>
-          </div>
+         
         </div>
       </div>
     </>
@@ -118,4 +103,3 @@ const AnnouncementPage = () => {
 };
 
 export default AnnouncementPage;
-

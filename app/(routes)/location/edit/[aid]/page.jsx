@@ -48,6 +48,10 @@ const DynamicPersonForm = () => {
       <Navbar />
       <div className="flex flex-col items-center bg-cream-1 py-8">
         <div className="max-w-4xl w-full space-y-8">
+        <div className="p-8 border border-black shadow-lg bg-[#F6EFE6]">
+
+        <h1 className='text-4xl'>Location</h1>
+
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700">Address</label>
             <input
@@ -58,7 +62,7 @@ const DynamicPersonForm = () => {
               className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
             />
           </div>
-
+          <div  className="grid grid-cols-2 gap-4">
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700">Latitude</label>
             <input
@@ -80,10 +84,11 @@ const DynamicPersonForm = () => {
               className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
             />
           </div>
+          </div>
 
           <button
             onClick={addPair}
-            className="block w-full px-4 py-2 text-center bg-gray-200 border-b border-gray-300"
+            className="block w-full px-4 py-2 text-center bg-white border-b border-gray-300"
           >
             Button to add another dropdown-input pair
           </button>
@@ -96,7 +101,7 @@ const DynamicPersonForm = () => {
                   newPairs[index].dropdown = e.target.value;
                   setPairs(newPairs);
                 }}
-                className="w-full px-4 py-2 border-b border-gray-300 bg-gray-200"
+                className="w-full px-4 py-2 border-b border-gray-300 bg-white"
               >
                 <option value="">Dropdown</option>
                 <option value="Option 1">Option 1</option>
@@ -111,13 +116,13 @@ const DynamicPersonForm = () => {
                   setPairs(newPairs);
                 }}
                 placeholder="Input type text"
-                className="w-full px-4 py-2 border-b border-gray-300 bg-gray-200"
+                className="w-full px-4 py-2 border-b border-gray-300 bg-white"
               />
             </div>
           ))}
 
           {persons.map((person, index) => (
-            <div key={person.id} className="p-8 border border-black shadow-lg bg-[#F6EFE6]">
+            <div key={person.id} className="p-8 border border-amber-900 mt-2 shadow-lg bg-[#F6EFE6]">
               <h2 className="text-2xl mb-6">Person details</h2>
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700">Title</label>
@@ -182,12 +187,13 @@ const DynamicPersonForm = () => {
             </div>
           ))}
 
-          <div className="flex justify-between mt-8">
-            <button onClick={addPerson} className="bg-black text-md w-32 h-16 text-white px-4 py-1">Add Person</button>
-          </div>
+          
         </div>
       </div>
-
+      </div>
+      <div className="flex justify-between mt-8">
+            <button onClick={addPerson} className="bg-black text-md w-32 ml-80 h-16 text-white px-4 py-1">Add Person</button>
+          </div>
       <div className="flex justify-center mt-6">
         <button onClick={handleSave} className="bg-[#EAA444] w-screen text-xl h-16 text-white px-4 mx-80">Save</button>
       </div>

@@ -49,8 +49,11 @@ const AllPersons = () => {
     <>
       <Navbar />
       <div className="flex flex-col items-center bg-cream-1 py-8">
-        <h1 className="text-3xl mb-6">All Persons</h1>
+        
         <div className="max-w-4xl w-full space-y-8">
+        <div className="p-8 border border-black shadow-lg bg-[#F6EFE6]">
+
+          <h1 className='text-4xl'>Location</h1>
         <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700">Address</label>
                 <input
@@ -60,8 +63,8 @@ const AllPersons = () => {
                   className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
                 />
               </div>
-
-              <div className="mb-4">
+<div  className="grid grid-cols-2 gap-4">
+              <div >
                 <label className="block text-sm font-medium text-gray-700">Latitude</label>
                 <input
                   type="text"
@@ -71,7 +74,7 @@ const AllPersons = () => {
                 />
               </div>
 
-              <div className="mb-4">
+              <div >
                 <label className="block text-sm font-medium text-gray-700">Longitude</label>
                 <input
                   type="text"
@@ -80,12 +83,13 @@ const AllPersons = () => {
                   className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
                 />
               </div>
+              </div>
 
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700">Dropboxes</label>
                 <button
                 
-                  className={`block w-full px-4 py-2 text-center border border-gray-300 bg-gray-200 mb-4 `}
+                  className={`block w-full px-4 py-2 text-center border border-gray-300 bg-white mb-4 `}
                 
                 >
                   Button to add another dropdown-input pair
@@ -99,7 +103,7 @@ const AllPersons = () => {
                         newPersons[personIndex].dropboxes[dropboxIndex].dropdown = e.target.value;
                         setPersons(newPersons);
                       }}
-                      className={`w-full px-4 py-2 border border-gray-300 bg-gray-200`}
+                      className={`w-full px-4 py-2 border border-gray-300 bg-white`}
                       
                     >
                       <option value="">Dropdown</option>
@@ -116,7 +120,7 @@ const AllPersons = () => {
                         setPersons(newPersons);
                       }}
                       placeholder="Input type text"
-                      className={`w-full px-4 py-2 border  bg-gray-200`}
+                      className={`w-full px-4 py-2 border  bg-white`}
                       
                     />
                   </div>
@@ -126,7 +130,7 @@ const AllPersons = () => {
             <div key={persons[0].id} >
                     
 
-              <div className="p-8 border border-black shadow-lg bg-[#F6EFE6]"> 
+              <div className="p-8 border border-amber-900 mt-2 shadow-lg bg-[#F6EFE6]"> 
               <h2 className="text-2xl mb-6">Person details</h2>
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700">Title</label>
@@ -184,6 +188,7 @@ const AllPersons = () => {
             </div>
           ))}
         </div>
+      </div>
       </div>
     </>
   );
