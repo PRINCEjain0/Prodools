@@ -60,9 +60,12 @@ const AllPersons = () => {
 
       if (response.ok) {
         console.log('Data saved successfully');
+        alert("Form submitted successfully")
+
         // Handle success response
       } else {
         console.error('Failed to save data');
+        alert("Form submission failed")
         // Handle error response
       }
     } catch (error) {

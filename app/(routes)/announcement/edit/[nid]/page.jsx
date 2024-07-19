@@ -68,9 +68,11 @@ const AllPersons = () => {
       }
 
       const data = await response.json();
+      alert("Form submitted successfully")
       console.log(data); // Handle successful upload
     } catch (error) {
       console.error(error);
+      alert("Form submission failed")
       // Handle upload error
     }
   };
