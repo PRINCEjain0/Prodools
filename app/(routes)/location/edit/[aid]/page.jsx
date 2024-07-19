@@ -25,10 +25,10 @@ const DynamicPersonForm = () => {
     setPersons(newPersons);
   };
 
-  const handleSave = () => {
-    console.log("Saved data:", { address, latitude, longitude, persons, pairs });
-    alert("Data saved successfully!");
-  };
+  // const handleSave = () => {
+  //   console.log("Saved data:", { address, latitude, longitude, persons, pairs });
+  //   alert("Data saved successfully!");
+  // };
 
   const removePerson = (id) => {
     setPersons(persons.filter(person => person.id !== id));
@@ -43,11 +43,44 @@ const DynamicPersonForm = () => {
     setPairs([...pairs, { id: newId, dropdown: '', input: '' }]);
   };
 
+
+  
+  const handleSave = async (event) => {
+    event.preventDefault();
+
+    const dataToSave = {
+      persons,
+      pairs,
+    };
+
+    try {
+      const response = await fetch('/api/create', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(dataToSave),
+      });
+
+      if (response.ok) {
+        console.log('Data saved successfully');
+        // Handle success response
+      } else {
+        console.error('Failed to save data');
+        // Handle error response
+      }
+    } catch (error) {
+      console.error('An error occurred while saving data', error);
+      // Handle network error
+    }
+  };
+
   return (
     <>
       <Navbar />
       <div className="flex flex-col items-center bg-cream-1 py-8">
         <div className="max-w-4xl w-full space-y-8">
+        <form onSubmit={handleSave}>
         <div className="p-8 border border-black shadow-lg bg-[#F6EFE6]">
 
         <h1 className='text-4xl libre-baskerville-regular'>Location</h1>
@@ -194,6 +227,7 @@ const DynamicPersonForm = () => {
       </div>
           
         </div>
+        </form>
       </div>
       </div>
       

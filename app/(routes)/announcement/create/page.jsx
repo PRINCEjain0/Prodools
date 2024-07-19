@@ -50,9 +50,15 @@ const AllPersons = () => {
 
     const formData = new FormData();
     formData.append('file', selectedFile);
+    formData.append('announcement', JSON.stringify(announcement));
+    formData.append('address', address);
+    formData.append('latitude', latitude);
+    formData.append('longitude', longitude);
+    formData.append('dropboxes', JSON.stringify(dropboxes));
+    formData.append('persons', JSON.stringify(persons));
 
     try {
-      const response = await fetch('/api/upload', { // Replace with your API endpoint
+      const response = await fetch('/api/create1', { // Replace with your API endpoint
         method: 'POST',
         body: formData,
       });
@@ -278,7 +284,12 @@ const AllPersons = () => {
             <button onClick={addPerson} className="bg-black text-md w-32 h-16 text-white px-4 py-1">Add Person</button>
           </div>
           <div className="flex justify-center mt-6">
-            <button className="bg-[#EAA444] w-screen text-xl h-16 text-white">Save</button>
+            <button 
+              onClick={handleSubmit} 
+              className="bg-[#EAA444] w-screen text-xl h-16 text-white"
+            >
+              Save
+            </button>
           </div>
         </div>
       </div>
