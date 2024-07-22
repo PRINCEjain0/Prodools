@@ -34,7 +34,9 @@ const DynamicPersonForm = () => {
     setPersons(persons.filter(person => person.id !== id));
   };
 
-  const addPerson = () => {
+  const addPerson = (event) => {
+    event.preventDefault();
+
     setPersons([...persons, { id: Date.now(), title: '', firstName: '', middleName: '', lastName: '', details: '' }]);
   };
 

@@ -30,7 +30,9 @@ const AllPersons = () => {
     setPersons((prevPersons) => prevPersons.filter((person) => person.id !== id));
   };
 
-  const addPerson = () => {
+  const addPerson = (event) => {
+    event.preventDefault();
+
     setPersons([...persons, { id: Date.now() }]);
   };
 

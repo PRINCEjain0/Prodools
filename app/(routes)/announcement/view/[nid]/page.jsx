@@ -2,7 +2,15 @@
 import Navbar from '@/components/Navbar';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRef,useEffect } from 'react';
 import React, { useState } from 'react';
+
+
+// import Zoomist styles
+import 'zoomist/css';
+// import Zoomist
+import Zoomist from 'zoomist';
+ 
 
 const AllPersons = () => {
   const [persons, setPersons] = useState([
@@ -22,11 +30,20 @@ const AllPersons = () => {
     },
   ]);
 
-  // const [selectedFile, setSelectedFile] = useState(null);
-  // const [previewUrl, setPreviewUrl] = useState(null);
   
   const [viewOnly, setViewOnly] = useState(true); // Set to true for view-only mode
 
+ 
+ 
+  const zoomistRefs = useRef([]); // Array to store Zoomist instances
+
+  useEffect(() => {
+    zoomistRefs.current.forEach((ref) => {
+      if (ref.current) {
+        new Zoomist(ref.current);
+      }
+    });
+  }, [persons]);
   
 
   return (
@@ -52,6 +69,7 @@ const AllPersons = () => {
         width={1000}
         height={300} 
         
+        ref={(el) => (zoomistRefs.current[personIndex] = el)}
       />
     </div>
 
