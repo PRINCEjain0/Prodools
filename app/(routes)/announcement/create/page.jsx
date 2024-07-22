@@ -7,23 +7,23 @@ const AllPersons = () => {
   const [persons, setPersons] = useState([
     {
       id: 1,
-      title: 'This is the Title',
-      firstName: 'Prince',
+      title: '',
+      firstName: '',
       middleName: '',
-      lastName: 'Jain',
-      details: "Prince's details go here.",
+      lastName: '',
+      details: "",
     },
   ]);
 
   const [announcement, setAnnouncement] = useState({
-    text: 'This is an announcement text.',
-    poster: 'https://plus.unsplash.com/premium_photo-1663099586860-e81d57e8b6bd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YW5ub3VuY2VtZW50JTIwcG9zdGVyfGVufDB8fDB8fHww'
+    text: '.',
+  
   });
 
-  const [address, setAddress] = useState('123 Main St, City, Country');
-  const [latitude, setLatitude] = useState('12.345678');
-  const [longitude, setLongitude] = useState('98.765432');
-  const [dropboxes, setDropboxes] = useState([{ id: 1, dropdown: 'hii', input: 'heyy' }]);
+  const [address, setAddress] = useState('');
+  const [latitude, setLatitude] = useState('');
+  const [longitude, setLongitude] = useState('');
+  const [dropboxes, setDropboxes] = useState([{ id: 1, dropdown: '', input: '' }]);
 
   const [selectedFile, setSelectedFile] = useState(null);
   const [previewUrl, setPreviewUrl] = useState(null);

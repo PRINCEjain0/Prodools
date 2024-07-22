@@ -36,7 +36,7 @@ const AllPersons = () => {
       <div className="flex flex-col items-center bg-cream-1 py-8">
         <div className="max-w-4xl w-full space-y-8">
         <div className="mt-4">
-                <Link href={`/location/create`} className="px-4 py-2 bg-blue-500 text-white ml-56">
+                <Link href={`/location/create`} className="px-4 py-2 bg-blue-500 text-white ml-48">
                 Do you want to add any location? Go ahead and create one!
 
                 </Link>
