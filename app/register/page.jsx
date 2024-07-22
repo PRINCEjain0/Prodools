@@ -46,7 +46,7 @@ export default function LoginPage() {
       <Navbar />
       <section className="flex flex-grow h-screen bg-cream-2">
         <div className="flex flex-col w-full max-w-md p-8 ml-60 md:w-1/2 lg:w-1/3">
-          <h2 className="libre-baskerville-regular mb-5 mt-28 text-black text-5xl">Login</h2>
+          <h2 className="libre-baskerville-regular mb-5 mt-28 text-black text-5xl">Register</h2>
           <form onSubmit={handleSubmit}>
           <div className="mb-4">
               <label className="block mb-1 text-sm font-medium text-gray-700" htmlFor="email">Name</label>
@@ -90,7 +90,7 @@ export default function LoginPage() {
             <a href="#" className="underline text-gray-600 ml-32">Password?</a>
           </form>
           <div className="flex justify-between mt-4 text-sm text-gray-600">
-            <p>Need an account? <a className="underline">Signup here</a></p>
+            <p>Already have an account? <a className="underline">Signin here</a></p>
           </div>
         </div>
         <div className="hidden bg-cover ml-28 lg:block lg:w-2/3">
