@@ -85,7 +85,7 @@ export default function LoginPage() {
               type="submit"
               className="w-28 h-14 px-4 py-2 text-white bg-black text-xl hover:bg-gray-800 focus:outline-none focus:ring focus:ring-gray-300"
             >
-              Login
+              Register
             </button>
             <a href="#" className="underline text-gray-600 ml-32">Password?</a>
           </form>
