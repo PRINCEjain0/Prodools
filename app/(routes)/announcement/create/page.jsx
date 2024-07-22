@@ -247,7 +247,7 @@ const AllPersons = () => {
 
               {persons.map((person, personIndex) => (
                 <div key={person.id} className="mt-8">
-                  <div className="p-8 border border-amber-900 mt-2 shadow-lg bg-[#F6EFE6]">
+                  <div className="p-8 border border-black mt-2 shadow-lg bg-[#F6EFE6]">
                     <h2 className="text-2xl mb-6">Person Details</h2>
                     <div className="mb-4">
                       <label className="block text-sm font-medium text-gray-700">Title</label>

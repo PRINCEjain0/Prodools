@@ -1,6 +1,7 @@
 "use client";
 import Navbar from '@/components/Navbar';
 import React, { useState } from 'react';
+import Link from 'next/link';
 
 const AddressPage = () => {
   const [addresses, setAddresses] = useState([
@@ -13,6 +14,7 @@ const AddressPage = () => {
   return (
     <>
       <Navbar />
+     
       <div className="flex flex-col md:flex-row items-start bg-cream-1 py-8 h-screen">
         <div className="w-full md:w-1/2 p-4 bg-[#F0E4D7] border-r border-gray-300 h-full overflow-y-auto">
           <h2 className="text-2xl mb-6">(Address)</h2>
@@ -39,7 +41,21 @@ const AddressPage = () => {
               />
             </div>
           </div>
-        </div>
+          
+      <div className="mt-8 mb-8 w-full">
+                <Link href={`/announcement/validate/1/{nid}`} className="w-full px-4 py-2  bg-green-500 text-white ml-20 ">
+                Do you want to Validate announcement? Go back and Validate 1!
+
+                </Link>
+              </div>
+              <div className="mt-4 w-full">
+                <Link href={`/announcement/validate/3/{nid}`} className="w-full px-4 py-2  bg-green-500 text-white ml-20 ">
+                Do you want to Validate announcement? Go ahead and Validate 3!
+
+                </Link>
+              </div>
+              </div>
+       
         <div className="w-full md:w-1/2 p-4 bg-[#F6EFE6] h-full overflow-y-auto">
           <h2 className="text-2xl mb-6">Similar Address</h2>
           {addresses.map((address, index) => (

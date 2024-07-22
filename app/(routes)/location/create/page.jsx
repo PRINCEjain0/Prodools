@@ -82,7 +82,7 @@ const AllPersons = () => {
         <div className="max-w-4xl w-full space-y-8">
           <form onSubmit={handleSave}>
             {/* <div className="p-8 border border-black shadow-lg bg-[#F6EFE6]"> */}
-              <h1 className="text-4xl libre-baskerville-regular">Location</h1>
+              <h1 className="text-4xl libre-baskerville-regular mb-2">Location</h1>
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700">Address</label>
                 <input
@@ -156,7 +156,7 @@ const AllPersons = () => {
               </div>
               {persons.map((person) => (
                 <div key={person.id}>
-                  <div className="p-8 border border-amber-900 shadow-lg bg-[#F6EFE6] mt-2">
+                  <div className="p-8 border border-black shadow-lg bg-[#F6EFE6] mt-2">
                     <h2 className="text-2xl mb-6">Person details</h2>
                     <div className="mb-4">
                       <label className="block text-sm font-medium text-gray-700">Title</label>

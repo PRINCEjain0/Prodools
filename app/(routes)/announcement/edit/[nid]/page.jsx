@@ -2,6 +2,7 @@
 import Navbar from '@/components/Navbar';
 import React, { useState } from 'react';
 import { useDropzone } from 'react-dropzone';
+import Link from 'next/link';
 
 const AllPersons = () => {
   const [persons, setPersons] = useState([
@@ -151,6 +152,11 @@ const AllPersons = () => {
       <Navbar />
       <div className="flex flex-col items-center bg-cream-1 py-8">
         <div className="max-w-4xl w-full space-y-8">
+        <div className="mt-4 w-full">
+                <Link href={`/announcement/validate/1/{nid}`} className="w-full px-4 py-2  bg-green-500 text-white ml-52 ">
+                Do you want to Validate announcement? Go ahead and Validate 1!
+                </Link>
+              </div>
           {/* <div className="p-8 border border-black shadow-lg bg-[#F6EFE6]"> */}
             {announcement.text && (
               <div className="mb-4">
@@ -247,7 +253,7 @@ const AllPersons = () => {
 
               {persons.map((person, personIndex) => (
                 <div key={person.id} className="mt-8">
-                  <div className="p-8 border border-amber-900 mt-2 shadow-lg bg-[#F6EFE6]">
+                  <div className="p-8 border border-black mt-2 shadow-lg bg-[#F6EFE6]">
                     <h2 className="text-2xl mb-6">Person Details</h2>
                     <div className="mb-4">
                       <label className="block text-sm font-medium text-gray-700">Title</label>

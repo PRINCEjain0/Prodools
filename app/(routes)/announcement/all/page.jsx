@@ -72,7 +72,7 @@ const AllPersons = () => {
                 </div>
               </div>
               <div className="mb-4">
-                <label className="block ">Dropboxes</label>
+                <label className="block mt-2">Dropboxes</label>
                 {person.dropboxes.map((dropbox) => (
                   <div key={dropbox.id} className="grid grid-cols-2 gap-4 mb-4">
                     <select

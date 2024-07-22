@@ -1,6 +1,7 @@
 "use client";
 import Navbar from '@/components/Navbar';
 import React, { useState } from 'react';
+import Link from 'next/link';
 
 const PersonAddressPage = () => {
   const [persons, setPersons] = useState([
@@ -13,6 +14,8 @@ const PersonAddressPage = () => {
   return (
     <>
       <Navbar />
+     
+    
       <div className="flex flex-col md:flex-row items-start bg-cream-1 py-8 h-screen">
         <div className="w-full md:w-1/2 p-4 bg-[#F0E4D7] border-r border-gray-300 h-full overflow-y-auto">
           <h2 className="text-2xl mb-6">(Person)</h2>
@@ -37,6 +40,12 @@ const PersonAddressPage = () => {
               className="w-full px-4 py-2 mt-1 border border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
             />
           </div>
+          <div className="mt-8 mb-8 w-full">
+                <Link href={`/announcement/validate/2/{nid}`} className="w-full px-4 py-2  bg-green-500 text-white ml-20 ">
+                Do you want to Validate announcement? Go back and Validate 2!
+
+                </Link>
+              </div>
         </div>
         <div className="w-full md:w-1/2 p-4 bg-[#F6EFE6] h-full overflow-y-auto">
           <h2 className="text-2xl mb-6">Similar Person</h2>

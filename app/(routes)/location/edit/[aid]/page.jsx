@@ -86,7 +86,7 @@ const DynamicPersonForm = () => {
         <form onSubmit={handleSave}>
         {/* <div className="p-8 border border-black shadow-lg bg-[#F6EFE6]"> */}
 
-        <h1 className='text-4xl libre-baskerville-regular'>Location</h1>
+        <h1 className='text-4xl libre-baskerville-regular mb-2'>Location</h1>
 
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700">Address</label>
@@ -161,7 +161,7 @@ const DynamicPersonForm = () => {
           ))}
 
           {persons.map((person, index) => (
-            <div key={person.id} className="p-8 border border-amber-900 mt-2 shadow-lg bg-[#F6EFE6]">
+            <div key={person.id} className="p-8 border border-black mt-2 shadow-lg bg-[#F6EFE6]">
               <h2 className="text-2xl mb-6">Person details</h2>
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700">Title</label>
