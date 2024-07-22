@@ -30,7 +30,7 @@ const DynamicPersonForm = () => {
         {/* <div className="p-8 border border-black shadow-lg bg-[#F6EFE6]"> */}
         <div className="mt-4">
                 <Link href={`/location/edit/{nid}`} className="px-4 py-2 bg-green-500 text-white ml-52 ">
-                Do you want to edit any location? Go ahead and edit one!
+                Do you want to edit  location? Go ahead and edit!
 
                 </Link>
               </div>
