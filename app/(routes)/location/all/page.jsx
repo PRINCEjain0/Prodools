@@ -43,7 +43,7 @@ const AllPersons = () => {
               </div>
           {persons.map((person, personIndex) => (
             <div key={person.id} className="p-8 border border-black shadow-lg bg-[#F6EFE6]">
-              <h1 className="text-4xl libre-baskerville-regular">Location</h1>
+              <h1 className="text-4xl libre-baskerville-regular mb-2">Location</h1>
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700">Address</label>
                 <input
@@ -74,12 +74,14 @@ const AllPersons = () => {
                 </div>
               </div>
               <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-700">Dropboxes</label>
+                <label className="block text-sm font-medium text-gray-700 my-2">Dropboxes</label>
                 {person.dropboxes.map((dropbox) => (
                   <div key={dropbox.id} className="grid grid-cols-2 gap-4 mb-4">
                     <select
                       value={dropbox.dropdown}
+                     
                       readOnly
+                      disabled 
                       className="w-full px-4 py-2 border border-gray-300 bg-white"
                     >
                       <option value="">Dropdown</option>
@@ -90,6 +92,7 @@ const AllPersons = () => {
                       type="text"
                       value={dropbox.input}
                       readOnly
+                      disabled
                       className="w-full px-4 py-2 border bg-white"
                     />
                   </div>

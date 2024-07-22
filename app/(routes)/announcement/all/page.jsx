@@ -28,20 +28,20 @@ const AllPersons = () => {
     },
   ]);
 
-   return (
+  return (
     <>
       <Navbar />
       <div className="flex flex-col items-center bg-cream-1 py-8">
         <div className="max-w-4xl w-full space-y-8">
-        <div className="mt-4">
-                <Link href={`/announcement/create`} className="px-4 py-2 bg-blue-500 text-white  ml-48">
-                Do you want to add any announcement? Go ahead and create one!
-                </Link>
-              </div>
-         
+          <div className="mt-4">
+            <Link href={`/announcement/create`} className="px-4 py-2 bg-blue-500 text-white ml-48">
+              Do you want to add any announcement? Go ahead and create one!
+            </Link>
+          </div>
+
           {persons.map((person) => (
             <div key={person.id} className="p-8 border border-black shadow-lg bg-[#F6EFE6]">
-              <h1 className="text-4xl libre-baskerville-regular">Announcement</h1>
+              <h1 className="text-4xl libre-baskerville-regular mb-2">Announcement</h1>
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700">Address</label>
                 <input
@@ -72,13 +72,14 @@ const AllPersons = () => {
                 </div>
               </div>
               <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-700">Dropboxes</label>
+                <label className="block ">Dropboxes</label>
                 {person.dropboxes.map((dropbox) => (
                   <div key={dropbox.id} className="grid grid-cols-2 gap-4 mb-4">
                     <select
                       value={dropbox.dropdown}
                       readOnly
                       className="w-full px-4 py-2 border border-gray-300 bg-white"
+                      disabled
                     >
                       <option value="">Dropdown</option>
                       <option value="Option 1">Option 1</option>
@@ -88,13 +89,14 @@ const AllPersons = () => {
                       type="text"
                       value={dropbox.input}
                       readOnly
+                      disabled
                       className="w-full px-4 py-2 border bg-white"
                     />
                   </div>
                 ))}
               </div>
               <div className="mt-4">
-                <Link href={`/announcement/view/{nid}`} className="px-4 py-2 bg-blue-500 text-white ">
+                <Link href={`/announcement/view/${person.id}`} className="px-4 py-2 bg-blue-500 text-white">
                   View
                 </Link>
               </div>

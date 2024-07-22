@@ -27,7 +27,13 @@ const DynamicPersonForm = () => {
       <Navbar />
       <div className="flex flex-col items-center bg-cream-1 py-8">
         <div className="max-w-4xl w-full space-y-8">
-        <div className="p-8 border border-black shadow-lg bg-[#F6EFE6]">
+        {/* <div className="p-8 border border-black shadow-lg bg-[#F6EFE6]"> */}
+        <div className="mt-4">
+                <Link href={`/location/edit/{nid}`} className="px-4 py-2 bg-green-500 text-white ml-52 ">
+                Do you want to edit any location? Go ahead and edit one!
+
+                </Link>
+              </div>
 
         <h1 className='text-4xl libre-baskerville-regular'>Location</h1>
 
@@ -66,13 +72,7 @@ const DynamicPersonForm = () => {
 </div>
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700">Dropboxes</label>
-                <button
                 
-                  className={`block w-full font-light px-4 py-2 text-center border border-gray-300 mb-4 ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
-                  disabled={viewOnly}
-                >
-                  Button to add another dropdown-input pair
-                </button>
                 {persons[0].dropboxes.map((dropbox, dropboxIndex) => (
                   <div key={dropbox.id} className="grid grid-cols-2 gap-4 mb-4">
                     <select
@@ -82,8 +82,8 @@ const DynamicPersonForm = () => {
                         newPersons[personIndex].dropboxes[dropboxIndex].dropdown = e.target.value;
                         setPersons(newPersons);
                       }}
-                      className={`w-full px-4 font-light py-2 border ${viewOnly ? 'border-gray-300 cursor-not-allowed' : 'border-gray-300'} bg-gray-200`}
-                      disabled={viewOnly}
+                      className={`w-full px-4 font-light py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
+                      readOnly={viewOnly}
                     >
                       <option value="">Dropdown</option>
                       {/* Add your dropdown options here */}
@@ -99,7 +99,7 @@ const DynamicPersonForm = () => {
                         setPersons(newPersons);
                       }}
                       placeholder="Input type text"
-                      className={`w-full px-4 font-light py-2 border ${viewOnly ? 'border-gray-300 cursor-not-allowed' : 'border-gray-300'} bg-gray-200`}
+                      className={`w-full px-4 font-light py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
                       readOnly={viewOnly}
                     />
                   </div>
@@ -168,16 +168,11 @@ const DynamicPersonForm = () => {
             </div>
             </div>
           ))}
-          <div className="mt-4">
-                <Link href={`/location/edit/{nid}`} className="px-4 py-2 bg-blue-500 text-white ">
-               edit
-
-                </Link>
-              </div>
+          
         </div>
         
       </div>
-      </div>
+      {/* </div> */}
     </>
   );
 };

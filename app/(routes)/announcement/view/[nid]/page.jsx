@@ -34,7 +34,13 @@ const AllPersons = () => {
       <Navbar />
       <div className="flex flex-col items-center bg-cream-1 py-8">
         <div className="max-w-4xl w-full space-y-8">
-        <div className="p-8 border border-black shadow-lg bg-[#F6EFE6]">
+        {/* <div className="p-8 border border-black shadow-lg bg-[#F6EFE6]"> */}
+
+        <div className="mt-4">
+                <Link href={`/announcement/edit/{nid}`} className="w-full px-4 py-2  bg-green-500 text-white ml-52 ">
+                Do you want to edit announcement? Go ahead and edit one!
+                </Link>
+              </div>
 
           {persons.map((person, personIndex) => (
             <div key={person.id} className="mt-8">
@@ -95,20 +101,14 @@ const AllPersons = () => {
 </div>
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700">Dropboxes</label>
-                <button
-                  type="button"
-                 
-                  className={`block w-full px-4 font-light py-2 text-center border border-gray-300 mb-4  ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
-                  disabled={viewOnly}                >
-                  Add Dropdown-Input Pair
-                </button>
+                
                 {person.dropboxes.map((dropbox, dropboxIndex) => (
                   <div key={dropbox.id} className="grid grid-cols-2 gap-4 mb-4">
                     <select
                       value={dropbox.dropdown}
                       onChange={(e) => handleChangeDropdown(personIndex, dropboxIndex, e)}
-                      className={`w-full px-4 font-light py-2 border  ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
-                      disabled={viewOnly}                    >
+                      className={`w-full px-4 py-2 font-light mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
+                      readOnly={viewOnly}                    >
                       <option value="">Dropdown</option>
                       {/* Add your dropdown options here */}
                       <option value="Option 1">Option 1</option>
@@ -119,7 +119,7 @@ const AllPersons = () => {
                       value={dropbox.input}
                       onChange={(e) => handleChangeInput(personIndex, dropboxIndex, e)}
                       placeholder="Input type text"
-                      className={`w-full px-4 py-2  font-light border ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
+                      className={`w-full px-4 py-2 font-light mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
                       readOnly={viewOnly}                    />
                   </div>
                 ))}
@@ -184,16 +184,12 @@ const AllPersons = () => {
               
             </div>
           ))}
-          <div className="mt-4">
-                <Link href={`/announcement/edit/{nid}`} className="px-4 py-2 bg-green-500 text-white">
-                  edit
-                </Link>
-              </div>
+          
          
         </div>
         
       </div>
-      </div>
+      {/* </div> */}
     </>
   );
 };

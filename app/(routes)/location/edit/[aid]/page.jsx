@@ -84,7 +84,7 @@ const DynamicPersonForm = () => {
       <div className="flex flex-col items-center bg-cream-1 py-8">
         <div className="max-w-4xl w-full space-y-8">
         <form onSubmit={handleSave}>
-        <div className="p-8 border border-black shadow-lg bg-[#F6EFE6]">
+        {/* <div className="p-8 border border-black shadow-lg bg-[#F6EFE6]"> */}
 
         <h1 className='text-4xl libre-baskerville-regular'>Location</h1>
 
@@ -95,7 +95,8 @@ const DynamicPersonForm = () => {
               name="address"
               value={address}
               onChange={(e) => setAddress(e.target.value)}
-              className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
+              className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none required"
+              required
             />
           </div>
           <div  className="grid grid-cols-2 gap-4">
@@ -106,8 +107,9 @@ const DynamicPersonForm = () => {
               name="latitude"
               value={latitude}
               onChange={(e) => setLatitude(e.target.value)}
-              className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
-            />
+              className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none required"
+              required
+           />
           </div>
 
           <div className="mb-4">
@@ -117,16 +119,17 @@ const DynamicPersonForm = () => {
               name="longitude"
               value={longitude}
               onChange={(e) => setLongitude(e.target.value)}
-              className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
-            />
+              className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none required"
+              required
+           />
           </div>
           </div>
-
+          <label className="block text-sm font-medium ">Dropboxes</label>
           <button
             onClick={addPair}
-            className="block w-full px-4 py-2 text-center border border-gray-300"
+            className="block bg-black mt-2 text-white px-4 py-2 text-center border border-gray-300"
           >
-            Button to add another dropdown-input pair
+            add another dropdown-input pair
           </button>
           {pairs.map((pair, index) => (
             <div key={pair.id} className="grid grid-cols-2 gap-4 mb-4">
@@ -229,7 +232,7 @@ const DynamicPersonForm = () => {
         <button onClick={handleSave} className="bg-[#EAA444] w-screen text-xl h-16 text-white px-4 ">Save</button>
       </div>
           
-        </div>
+        {/* </div> */}
         </form>
       </div>
       </div>

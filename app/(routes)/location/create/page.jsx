@@ -81,7 +81,7 @@ const AllPersons = () => {
       <div className="flex flex-col items-center bg-cream-1 py-8">
         <div className="max-w-4xl w-full space-y-8">
           <form onSubmit={handleSave}>
-            <div className="p-8 border border-black shadow-lg bg-[#F6EFE6]">
+            {/* <div className="p-8 border border-black shadow-lg bg-[#F6EFE6]"> */}
               <h1 className="text-4xl libre-baskerville-regular">Location</h1>
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700">Address</label>
@@ -89,7 +89,8 @@ const AllPersons = () => {
                   type="text"
                   value={persons[0].address}
                   onChange={(e) => handleInputChange(persons[0].id, 'address', e.target.value)}
-                  className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
+                  className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none required"
+                  required
                 />
               </div>
               <div className="grid grid-cols-2 gap-4">
@@ -99,7 +100,8 @@ const AllPersons = () => {
                     type="text"
                     value={persons[0].latitude}
                     onChange={(e) => handleInputChange(persons[0].id, 'latitude', e.target.value)}
-                    className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
+                    className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none required"
+                    required
                   />
                 </div>
                 <div className="mb-4">
@@ -108,20 +110,22 @@ const AllPersons = () => {
                     type="text"
                     value={persons[0].longitude}
                     onChange={(e) => handleInputChange(persons[0].id, 'longitude', e.target.value)}
-                    className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none"
+                    className="w-full px-4 py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none required"
+                    required
                   />
                 </div>
               </div>
-              <div className="flex flex-col items-center py-8">
-                <div className="max-w-4xl w-full space-y-8">
+              <div className="flex flex-col items-center py-4">
+                <div className="max-w-4xl w-full space-y-4">
+                  <label className="block text-sm font-medium ">Dropboxes</label>
                   <button
                     onClick={addPair}
-                    className="block w-full px-4 py-2 text-center border border-gray-300"
+                    className="block text-sm font-medium bg-black text-white px-4 py-2 text-center border border-gray-300"
                   >
-                    Button to add another dropdown-input pair
+                   add another dropdown-input pair
                   </button>
                   {pairs.map((pair, index) => (
-                    <div key={pair.id} className="grid grid-cols-2 gap-4 mb-4">
+                    <div key={pair.id} className="grid grid-cols-2 gap-4 mb-2">
                       <select
                         value={pair.dropdown}
                         onChange={(e) => {
@@ -129,7 +133,7 @@ const AllPersons = () => {
                           newPairs[index].dropdown = e.target.value;
                           setPairs(newPairs);
                         }}
-                        className="w-full px-4 py-2 border-b border-gray-300 bg-white"
+                        className="w-full text-sm font-medium px-4 py-2 border-b border-gray-300 bg-white"
                       >
                         <option value="">Dropdown</option>
                         <option value="Option 1">Option 1</option>
@@ -144,7 +148,7 @@ const AllPersons = () => {
                           setPairs(newPairs);
                         }}
                         placeholder="Input type text"
-                        className="w-full px-4 py-2 border-b border-gray-300 bg-white"
+                        className="w-full px-4 text-sm font-medium py-2 border-b border-gray-300 bg-white"
                       />
                     </div>
                   ))}
@@ -221,7 +225,7 @@ const AllPersons = () => {
                   Save
                 </button>
               </div>
-            </div>
+            {/* </div> */}
           </form>
         </div>
       </div>
