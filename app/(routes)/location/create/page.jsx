@@ -36,7 +36,8 @@ const AllPersons = () => {
 
   const [pairs, setPairs] = useState([{ id: 1, dropdown: '', input: '' }]);
 
-  const addPair = () => {
+  const addPair = (event) => {
+    event.preventDefault();
     const newId = pairs.length ? pairs[pairs.length - 1].id + 1 : 1;
     setPairs([...pairs, { id: newId, dropdown: '', input: '' }]);
   };
@@ -50,7 +51,7 @@ const AllPersons = () => {
     };
 
     try {
-      const response = await fetch('/api/create', {
+      const response = await fetch('/api/location', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -1,6 +1,7 @@
 "use client";
 import Navbar from '@/components/Navbar';
 import React, { useState } from 'react';
+import Link from 'next/link';
 
 const DynamicPersonForm = () => {
   const initialPerson = {
@@ -167,7 +168,14 @@ const DynamicPersonForm = () => {
             </div>
             </div>
           ))}
+          <div className="mt-4">
+                <Link href={`/location/edit/{nid}`} className="px-4 py-2 bg-blue-500 text-white ">
+               edit
+
+                </Link>
+              </div>
         </div>
+        
       </div>
       </div>
     </>

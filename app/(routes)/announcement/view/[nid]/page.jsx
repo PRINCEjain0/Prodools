@@ -1,6 +1,7 @@
 "use client";
 import Navbar from '@/components/Navbar';
 import Image from 'next/image';
+import Link from 'next/link';
 import React, { useState } from 'react';
 
 const AllPersons = () => {
@@ -183,6 +184,11 @@ const AllPersons = () => {
               
             </div>
           ))}
+          <div className="mt-4">
+                <Link href={`/announcement/edit/{nid}`} className="px-4 py-2 bg-green-500 text-white">
+                  edit
+                </Link>
+              </div>
          
         </div>
         
