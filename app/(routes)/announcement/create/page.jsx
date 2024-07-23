@@ -45,65 +45,65 @@ const AllPersons = () => {
 
   const { getRootProps, getInputProps } = useDropzone({ onDrop });
 
-  const handleSubmitAnnouncement = async (event) => {
-    event.preventDefault();
-    if (!selectedFile) {
-      alert("Please select a file to upload");
-      return;
-    }
-    const formData = new FormData();
-
-    formData.append('file', selectedFile);
-    formData.append('announcement', JSON.stringify(announcement));
-
-    try {
-      const response = await fetch('/api/announcement', { 
-        method: 'POST',
-        body: formData,
-      });
-
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-
-      const data = await response.json();
-      alert("Image submitted successfully");
-      console.log(data);
-    } catch (error) {
-      console.error(error);
-      alert("Image submission failed");
-      
-    }
-  };
+  // const handleFileUpload = async (event) => {
+  //   event.preventDefault();
+  //   if (!selectedFile) {
+  //     alert("Please select a file to upload");
+  //     return;
+  //   }
+  //   const formData = new FormData();
+  
+  //   formData.append('file', selectedFile);
+  
+  //   try {
+  //     const response = await fetch('/api/upload', { // Change this to your file upload endpoint
+  //       method: 'POST',
+  //       body: formData,
+  //     });
+  
+  //     if (!response.ok) {
+  //       throw new Error('Network response was not ok');
+  //     }
+  
+  //     const data = await response.json();
+  //     alert("Image uploaded successfully");
+  //     console.log(data);
+  //   } catch (error) {
+  //     console.error(error);
+  //     alert("Image upload failed");
+  //   }
+  // };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+  
     const formData = new FormData();
+    if (selectedFile) {
+      formData.append('file', selectedFile);
+    }
     formData.append('announcement', JSON.stringify(announcement));
     formData.append('address', address);
     formData.append('latitude', latitude);
     formData.append('longitude', longitude);
     formData.append('dropboxes', JSON.stringify(dropboxes));
     formData.append('persons', JSON.stringify(persons));
-
+  
     try {
       const response = await fetch('/api/announcement', { // Replace with your API endpoint
         method: 'POST',
         body: formData,
       });
-
+  
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
-
+  
       const data = await response.json();
       alert("Form submitted successfully");
-      console.log(data); // Handle successful upload
+      console.log(data);
     } catch (error) {
       console.error(error);
       alert("Form submission failed");
-      // Handle upload error
     }
   };
 
@@ -163,8 +163,7 @@ const AllPersons = () => {
                     <p>Drag 'n' drop some files here, or click to select files</p>
                   )}
                 </div>
-                <button onClick={handleSubmitAnnouncement} className="bg-green-400 mt-2 text-md w-32 h-8 text-white py-1 mb-2">Upload</button>
-                <label className="block text-sm font-medium text-gray-700">Text</label>
+                <button  type="button" className="bg-green-400 mt-2 text-md w-32 h-8 text-white py-1 mb-2">Upload</button>                <label className="block text-sm font-medium text-gray-700">Text</label>
                 <textarea
                   name="text"
                   value={announcement.text}
