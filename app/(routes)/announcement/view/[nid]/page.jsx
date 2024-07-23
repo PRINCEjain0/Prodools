@@ -1,16 +1,12 @@
 "use client";
 import Navbar from '@/components/Navbar';
-import Image from 'next/image';
 import Link from 'next/link';
-import { useRef,useEffect } from 'react';
-import React, { useState } from 'react';
-
+import { useRef, useEffect, useState } from 'react';
 
 // import Zoomist styles
 import 'zoomist/css';
 // import Zoomist
 import Zoomist from 'zoomist';
- 
 
 const AllPersons = () => {
   const [persons, setPersons] = useState([
@@ -30,57 +26,67 @@ const AllPersons = () => {
     },
   ]);
 
-  
   const [viewOnly, setViewOnly] = useState(true); // Set to true for view-only mode
-
- 
- 
-  const zoomistRefs = useRef([]); // Array to store Zoomist instances
+  const zoomistContainerRef = useRef(null);
+  const [zoomistInstance, setZoomistInstance] = useState(null);
 
   useEffect(() => {
-    zoomistRefs.current.forEach((ref) => {
-      if (ref.current) {
-        new Zoomist(ref.current);
+    if (zoomistContainerRef.current && !zoomistInstance) {
+      const newZoomistInstance = new Zoomist(zoomistContainerRef.current, {
+        zoomRatio: 0.2,
+        animationDuration: 300,
+        minScale: 1,
+        maxScale: 3,
+        // slider: true,
+        zoomer: true,
+      });
+      setZoomistInstance(newZoomistInstance);
+      console.log("Zoomist instance created:", newZoomistInstance);
+    }
+
+    return () => {
+      if (zoomistInstance) {
+        zoomistInstance.destroy();
       }
-    });
-  }, [persons]);
-  
+    };
+  }, [zoomistInstance]);
+
 
   return (
     <>
       <Navbar />
       <div className="flex flex-col items-center bg-cream-1 py-8">
         <div className="max-w-4xl w-full space-y-8">
-        {/* <div className="p-8 border border-black shadow-lg bg-[#F6EFE6]"> */}
+          <div className="mt-4">
+            <Link href={`/announcement/edit/{nid}`} className="w-full px-4 py-2 bg-green-500 text-white ml-52">
+              Do you want to edit the announcement? Go ahead and edit one!
+            </Link>
+          </div>
 
-        <div className="mt-4">
-                <Link href={`/announcement/edit/{nid}`} className="w-full px-4 py-2  bg-green-500 text-white ml-52 ">
-                Do you want to edit announcement? Go ahead and edit one!
-                </Link>
-              </div>
-
-          {persons.map((person, personIndex) => (
+          {persons.map((person) => (
             <div key={person.id} className="mt-8">
               <h2 className="text-4xl mb-6 libre-baskerville-regular">Announcement</h2>
-              <div>
-      <img
-        src={person.poster} // Path to the image file
-        alt="My Image"
-        width={1000}
-        height={300} 
-        
-        ref={(el) => (zoomistRefs.current[personIndex] = el)}
-      />
-    </div>
 
+              <div ref={zoomistContainerRef} className="zoomist-container">
+                <div className="zoomist-wrapper">
+                  <div className="zoomist-image">
+                    <img
+                      src={person.poster}
+                      alt="Announcement Poster"
+                      width={1000}
+                      height={300}
+                    />
+                  </div>
+                </div>
+              </div>
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700">Text</label>
                 <textarea
                   name="text"
                   value={person.text}
-                  
                   readOnly={viewOnly}
-                  className={`w-full px-4 font-light py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}                ></textarea>
+                  className={`w-full px-4 font-light py-2 mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
+                ></textarea>
               </div>
 
               <div className="mb-4">
@@ -89,64 +95,65 @@ const AllPersons = () => {
                   name="address"
                   type="text"
                   value={person.address}
-                  
                   readOnly={viewOnly}
                   className={`w-full px-4 py-2 font-light mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
-                />              
-              </div>
-              <div  className="grid grid-cols-2 gap-4">
-              <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-700">Latitude</label>
-                <input
-                  name="latitude"
-                  type="text"
-                  value={person.latitude}
-                  readOnly={viewOnly}
-                  className={`w-full px-4 py-2  font-light mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
                 />
               </div>
 
-              <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-700">Longitude</label>
-                <input
-                  name="longitude"
-                  type="text"
-                  value={person.longitude}
-                  readOnly={viewOnly}
-                  className={`w-full px-4 py-2 font-light mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
-                />
+              <div className="grid grid-cols-2 gap-4">
+                <div className="mb-4">
+                  <label className="block text-sm font-medium text-gray-700">Latitude</label>
+                  <input
+                    name="latitude"
+                    type="text"
+                    value={person.latitude}
+                    readOnly={viewOnly}
+                    className={`w-full px-4 py-2 font-light mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
+                  />
+                </div>
+
+                <div className="mb-4">
+                  <label className="block text-sm font-medium text-gray-700">Longitude</label>
+                  <input
+                    name="longitude"
+                    type="text"
+                    value={person.longitude}
+                    readOnly={viewOnly}
+                    className={`w-full px-4 py-2 font-light mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
+                  />
+                </div>
               </div>
-</div>
+
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700">Dropboxes</label>
-                
                 {person.dropboxes.map((dropbox, dropboxIndex) => (
                   <div key={dropbox.id} className="grid grid-cols-2 gap-4 mb-4">
                     <select
                       value={dropbox.dropdown}
-                      onChange={(e) => handleChangeDropdown(personIndex, dropboxIndex, e)}
+                      onChange={() => { }}
                       className={`w-full px-4 py-2 font-light mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
-                      readOnly={viewOnly}                    >
+                      readOnly={viewOnly}
+                    >
                       <option value="">Dropdown</option>
-                      {/* Add your dropdown options here */}
                       <option value="Option 1">Option 1</option>
                       <option value="Option 2">Option 2</option>
                     </select>
                     <input
                       type="text"
                       value={dropbox.input}
-                      onChange={(e) => handleChangeInput(personIndex, dropboxIndex, e)}
+                      onChange={() => { }}
                       placeholder="Input type text"
                       className={`w-full px-4 py-2 font-light mt-1 border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
-                      readOnly={viewOnly}                    />
+                      readOnly={viewOnly}
+                    />
                   </div>
                 ))}
               </div>
 
-              <div className="p-8 border border-black  shadow-lg bg-[#F6EFE6]">
+              <div className="p-8 border border-black shadow-lg bg-[#F6EFE6]">
                 <h2 className="text-2xl mb-6">Person Details</h2>
                 <div className="mb-4">
-                  <label className="block text-sm  font-medium text-gray-700">Title</label>
+                  <label className="block text-sm font-medium text-gray-700">Title</label>
                   <input
                     name="title"
                     type="text"
@@ -158,7 +165,7 @@ const AllPersons = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                   <div>
-                    <label className="block text-sm  font-medium text-gray-700">First Name</label>
+                    <label className="block text-sm font-medium text-gray-700">First Name</label>
                     <input
                       name="firstName"
                       type="text"
@@ -184,7 +191,7 @@ const AllPersons = () => {
                       type="text"
                       value={person.lastName}
                       readOnly={viewOnly}
-                    className={`w-full px-4 py-2 mt-1 font-light border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
+                      className={`w-full px-4 py-2 mt-1 font-light border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
                     />
                   </div>
                 </div>
@@ -195,19 +202,14 @@ const AllPersons = () => {
                     name="details"
                     value={person.details}
                     readOnly={viewOnly}
-                  className={`w-full px-4 py-2 mt-1 font-light border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
+                    className={`w-full px-4 py-2 mt-1 font-light border-b border-gray-300 focus:border-gray-400 focus:ring-0 outline-none ${viewOnly ? 'disabled cursor-not-allowed border-gray-300' : ''}`}
                   ></textarea>
                 </div>
               </div>
-              
             </div>
           ))}
-          
-         
         </div>
-        
       </div>
-      {/* </div> */}
     </>
   );
 };
