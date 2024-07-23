@@ -37,7 +37,7 @@ const AllPersons = () => {
         animationDuration: 300,
         minScale: 1,
         maxScale: 3,
-        // slider: true,
+        slider: true,
         zoomer: true,
       });
       setZoomistInstance(newZoomistInstance);
